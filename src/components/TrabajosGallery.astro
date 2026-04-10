@@ -1,0 +1,185 @@
+---
+import { trabajosData } from "../data/trabajos";
+---
+
+<section class="mn-gallery section" id="trabajos">
+  <div class="container">
+    <header class="section-head section-head--center">
+      <h2>Trabajos Realizados</h2>
+      <p>Algunos de nuestros trabajos en Arequipa</p>
+    </header>
+
+    <div class="mn-gallery-grid" id="mnGalleryGrid">
+      {trabajosData.map((trabajo, index) => (
+        <article
+          class={`mn-gallery-card ${trabajo.destacado ? "mn-gallery-card--featured" : ""}`}
+          data-index={index}
+        >
+          <button
+            type="button"
+            class="mn-gallery-card__button"
+            data-gallery-open
+            data-index={index}
+            aria-label={`Abrir imagen: ${trabajo.titulo}`}
+          >
+            <img
+              src={trabajo.imagen}
+              alt={trabajo.alt}
+              class="mn-gallery-card__img"
+              loading="lazy"
+              decoding="async"
+            />
+
+            <div class="mn-gallery-card__overlay">
+              <div class="mn-gallery-card__text">
+                {trabajo.categoria && (
+                  <span class="mn-gallery-card__tag">{trabajo.categoria}</span>
+                )}
+                <h3>{trabajo.titulo}</h3>
+                <p>{trabajo.descripcion}</p>
+                <span class="mn-gallery-card__hint">Click para ampliar</span>
+              </div>
+            </div>
+          </button>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div
+    class="mn-lightbox"
+    id="mnLightbox"
+    aria-hidden="true"
+    hidden
+  >
+    <div class="mn-lightbox__backdrop" data-gallery-close></div>
+
+    <div
+      class="mn-lightbox__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mnLightboxTitle"
+      aria-describedby="mnLightboxDesc"
+    >
+      <button
+        type="button"
+        class="mn-lightbox__close"
+        id="mnLightboxClose"
+        aria-label="Cerrar galería"
+        data-gallery-close
+      >
+        ×
+      </button>
+
+      <button
+        type="button"
+        class="mn-lightbox__nav mn-lightbox__nav--prev"
+        id="mnLightboxPrev"
+        aria-label="Imagen anterior"
+      >
+        ‹
+      </button>
+
+      <figure class="mn-lightbox__figure">
+        <img
+          id="mnLightboxImage"
+          src=""
+          alt=""
+          class="mn-lightbox__img"
+        />
+        <figcaption class="mn-lightbox__caption">
+          <h3 id="mnLightboxTitle"></h3>
+          <p id="mnLightboxDesc"></p>
+        </figcaption>
+      </figure>
+
+      <button
+        type="button"
+        class="mn-lightbox__nav mn-lightbox__nav--next"
+        id="mnLightboxNext"
+        aria-label="Imagen siguiente"
+      >
+        ›
+      </button>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ trabajosData }}>
+  const lightbox = document.getElementById("mnLightbox");
+  const lightboxImage = document.getElementById("mnLightboxImage");
+  const lightboxTitle = document.getElementById("mnLightboxTitle");
+  const lightboxDesc = document.getElementById("mnLightboxDesc");
+  const prevBtn = document.getElementById("mnLightboxPrev");
+  const nextBtn = document.getElementById("mnLightboxNext");
+  const closeBtn = document.getElementById("mnLightboxClose");
+  const openButtons = document.querySelectorAll("[data-gallery-open]");
+  const closeButtons = document.querySelectorAll("[data-gallery-close]");
+
+  let currentIndex = 0;
+
+  function updateLightbox(index) {
+    const item = trabajosData[index];
+    if (!item) return;
+
+    currentIndex = index;
+    lightboxImage.src = item.imagen;
+    lightboxImage.alt = item.alt || item.titulo;
+    lightboxTitle.textContent = item.titulo;
+    lightboxDesc.textContent = item.descripcion;
+  }
+
+  function openLightbox(index) {
+    updateLightbox(index);
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("mn-lightbox-open");
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("mn-lightbox-open");
+  }
+
+  function showPrev() {
+    const nextIndex = currentIndex === 0 ? trabajosData.length - 1 : currentIndex - 1;
+    updateLightbox(nextIndex);
+  }
+
+  function showNext() {
+    const nextIndex = currentIndex === trabajosData.length - 1 ? 0 : currentIndex + 1;
+    updateLightbox(nextIndex);
+  }
+
+  openButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const index = Number(button.getAttribute("data-index"));
+      openLightbox(index);
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closeLightbox);
+  });
+
+  prevBtn?.addEventListener("click", showPrev);
+  nextBtn?.addEventListener("click", showNext);
+  closeBtn?.addEventListener("click", closeLightbox);
+
+  document.addEventListener("keydown", (event) => {
+    if (lightbox.hidden) return;
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+
+    if (event.key === "ArrowLeft") {
+      showPrev();
+    }
+
+    if (event.key === "ArrowRight") {
+      showNext();
+    }
+  });
+</script>

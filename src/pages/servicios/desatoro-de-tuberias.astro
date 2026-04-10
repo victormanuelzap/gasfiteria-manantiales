@@ -1,0 +1,619 @@
+---
+import ManantialLayout from "../../layouts/ManantialLayout.astro";
+
+const PHONE_MAIN = "970706965";
+const PHONE_2 = "988970791";
+const PHONE_3 = "925384411";
+const WHATSAPP = "51970706965";
+
+const heroImage = "/assets/servicios/tuberias.webp";
+const introImage = "/assets/servicios/tuberias-intro.webp";
+const benefitsImage = "/assets/servicios/tuberias-beneficios.webp";
+
+const waLink = (text: string) =>
+  `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+const services = [
+  {
+    icon: "fa-solid fa-toilet",
+    title: "Desatoro de Inodoros",
+    text: "Eliminamos obstrucciones en inodoros con equipos especializados",
+  },
+  {
+    icon: "fa-solid fa-sink",
+    title: "Desatoro de Lavaderos",
+    text: "Limpieza profunda de tuberías de cocinas y lavaderos",
+  },
+  {
+    icon: "fa-solid fa-water",
+    title: "Desatoro de Desagües",
+    text: "Destapado de desagües principales y secundarios",
+  },
+  {
+    icon: "fa-solid fa-shield-halved",
+    title: "Limpieza de Tuberías",
+    text: "Limpieza con Hidrojet para prevenir futuras obstrucciones",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    icon: "fa-solid fa-magnifying-glass",
+    title: "Evaluación Gratuita",
+    text: "Inspeccionamos el problema y determinamos la mejor solución con Hidrojet",
+  },
+  {
+    number: "2",
+    icon: "fa-solid fa-gauge-high",
+    title: "Preparación del Equipo",
+    text: "Configuramos el Hidrojet según el tipo de tubería y obstrucción",
+  },
+  {
+    number: "3",
+    icon: "fa-solid fa-bolt",
+    title: "Desatoro con Hidrojet",
+    text: "Aplicamos agua a alta presión para eliminar completamente la obstrucción",
+  },
+  {
+    number: "4",
+    icon: "fa-regular fa-file-lines",
+    title: "Verificación Final",
+    text: "Comprobamos que el desagüe funcione perfectamente y limpiamos el área",
+  },
+];
+
+const works = [
+  {
+    title: "Desagüe de Cocina",
+    text: "Lavadero completamente tapado, ahora fluye perfectamente",
+    image: "/assets/servicios/tuberias-trabajo-1.webp",
+    alt: "Desagüe de cocina desatorado con equipo Hidrojet",
+  },
+  {
+    title: "Tubería Principal",
+    text: "Tubería obstruida con grasa limpiada con Hidrojet",
+    image: "/assets/servicios/tuberias-trabajo-2.webp",
+    alt: "Tubería principal limpiada con Hidrojet",
+  },
+  {
+    title: "Inodoro Tapado",
+    text: "Inodoro con obstrucción severa destapado completamente",
+    image: "/assets/servicios/tuberias-trabajo-3.webp",
+    alt: "Inodoro destapado con servicio profesional en Arequipa",
+  },
+];
+
+const benefits = [
+  "Desatoro con equipos Hidrojet de alta presión",
+  "Eliminación total de obstrucciones",
+  "No daña las tuberías",
+  "Servicio rápido y efectivo",
+  "Atención 24/7 en toda Arequipa",
+  "Presupuestos sin compromiso",
+];
+
+const compareRows = [
+  { label: "Equipos Hidrojet profesionales", manantial: true, other: false },
+  { label: "Presión ajustable según tubería", manantial: true, other: false },
+  { label: "Servicio 24/7 emergencias", manantial: true, other: false },
+  { label: "No daña tuberías", manantial: true, other: false },
+  { label: "Limpieza profunda garantizada", manantial: true, other: false },
+  { label: "Evaluación gratuita", manantial: true, other: true },
+  { label: "Previene futuras obstrucciones", manantial: true, other: false },
+];
+
+const problems = [
+  {
+    title: "Cocinas y Restaurantes",
+    items: [
+      "Lavaderos atascados con grasa",
+      "Desagües de cocina lentos",
+      "Trampas de grasa saturadas",
+      "Tuberías con residuos de comida",
+    ],
+  },
+  {
+    title: "Baños y Sanitarios",
+    items: [
+      "Inodoros tapados",
+      "Desagües de ducha lentos",
+      "Lavabos obstruidos",
+      "Tuberías con acumulación de jabón",
+    ],
+  },
+  {
+    title: "Desagües Exteriores",
+    items: [
+      "Cámaras de desagüe colapsadas",
+      "Tuberías con raíces de árboles",
+      "Desagües pluviales tapados",
+      "Buzones saturados",
+    ],
+  },
+];
+
+const testimonials = [
+  {
+    text: "Mi restaurante tenía un problema grave de desagüe. Vinieron con el Hidrojet y en 2 horas solucionaron todo. Increíble servicio.",
+    name: "Roberto Valdivia",
+    place: "Paucarpata, Arequipa",
+    time: "Hace 3 días",
+  },
+  {
+    text: "Había probado con otros gasfiteros y nada funcionaba. El Hidrojet de Manantial destapó todo en minutos. Súper recomendados.",
+    name: "Patricia Gutiérrez",
+    place: "Miraflores, Arequipa",
+    time: "Hace 1 semana",
+  },
+  {
+    text: "Excelente atención, llegaron rápido y resolvieron el problema de mi inodoro tapado. Precio justo y trabajo garantizado.",
+    name: "Jorge Sánchez",
+    place: "Mariano Melgar, Arequipa",
+    time: "Hace 2 semanas",
+  },
+];
+
+const stats = [
+  { value: "4.9/5", label: "Calificación promedio", tone: "blue" },
+  { value: "500+", label: "Clientes satisfechos", tone: "green" },
+  { value: "100%", label: "Garantía en trabajos", tone: "violet" },
+  { value: "15+", label: "Años de experiencia", tone: "orange" },
+];
+
+const districts = [
+  "Cercado",
+  "Cayma",
+  "Yanahuara",
+  "Miraflores",
+  "Paucarpata",
+  "Mariano Melgar",
+  "Hunter",
+  "Socabaya",
+  "Sachaca",
+  "Alto Selva Alegre",
+  "Cerro Colorado",
+  "Jacobo Hunter",
+  "José Luis Bustamante",
+  "Characato",
+  "Tiabaya",
+  "Sabandia",
+];
+
+const faqs = [
+  {
+    question: "¿Cuánto tiempo toma desatorar una tubería?",
+    answer:
+      "Con nuestro equipo Hidrojet, la mayoría de desatoros se realizan en 1 a 2 horas. Si la obstrucción es severa o la tubería tiene acumulación antigua de grasa, el trabajo puede tomar un poco más, pero siempre buscamos la solución más rápida y efectiva.",
+  },
+  {
+    question: "¿El Hidrojet puede dañar mis tuberías?",
+    answer:
+      "No. Cuando el equipo es operado correctamente, el Hidrojet es un método seguro. La presión se regula según el tipo de tubería y el nivel de obstrucción, permitiendo limpiar a profundidad sin romper ni maltratar la instalación.",
+  },
+  {
+    question: "¿Qué tan seguido debo hacer mantenimiento con Hidrojet?",
+    answer:
+      "Depende del uso. En casas, normalmente se recomienda mantenimiento preventivo cuando ya empiezan los drenajes lentos. En restaurantes, negocios de comida y locales con alta carga de grasa, sí conviene hacerlo de forma periódica para evitar emergencias y cierres inesperados.",
+  },
+  {
+    question: "¿Atienden emergencias de desatoro de noche?",
+    answer:
+      "Sí. Atendemos emergencias de desatoro las 24 horas, incluyendo noches, domingos y feriados, en toda Arequipa. Si el problema es urgente, puede llamarnos o escribirnos por WhatsApp para una respuesta rápida.",
+  },
+  {
+    question: "¿Cuánto cuesta el servicio de Hidrojet?",
+    answer:
+      "El costo varía según el tipo de obstrucción, la ubicación del problema y el acceso a la tubería. Por eso primero hacemos una evaluación para darle un presupuesto claro y sin compromiso. Nuestro objetivo es ofrecer una solución efectiva al precio justo.",
+  },
+];
+---
+
+<ManantialLayout
+  title="Desatoro de Tuberías con Hidrojet en Arequipa | Instalación y Servicios Manantial"
+  description="Servicio profesional de desatoro de tuberías con Hidrojet en Arequipa. Atención 24/7, evaluación gratis y solución rápida para todo tipo de obstrucciones."
+>
+  <style is:global>
+    @import "/css/tuberias.css";
+  </style>
+
+  <section class="tb-hero">
+    <picture class="tb-hero__bg">
+      <img
+        src={heroImage}
+        alt="Desatoro de tuberías con Hidrojet en Arequipa"
+        class="tb-hero__bg-img"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </picture>
+
+    <div class="tb-hero__overlay"></div>
+
+    <div class="container tb-hero__container">
+      <a href="/servicios" class="tb-back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        Volver a Servicios
+      </a>
+
+      <div class="tb-hero__content">
+        <h1 class="tb-hero__title">Desatoro de Tuberías con Hidrojet en Arequipa</h1>
+        <p class="tb-hero__text">
+          Servicio profesional de desatoro con equipos Hidrojet de alta presión.
+          Solución rápida y efectiva para todo tipo de obstrucciones.
+        </p>
+
+        <div class="tb-hero__actions">
+          <a
+            href={waLink("Hola, necesito una cotización para desatoro de tuberías con Hidrojet en Arequipa.")}
+            class="btn btn--green"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Solicitar Cotización
+          </a>
+
+          <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+            <i class="fa-solid fa-phone"></i>
+            Llamar Ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tb-highlight">
+    <div class="container tb-highlight__wrap">
+      <div class="tb-highlight__text">
+        <h2>
+          <span>⚡</span>
+          Desatoro Express con Hidrojet - Evaluación GRATIS
+        </h2>
+        <p>Trabajamos con garantía y repuestos de calidad</p>
+      </div>
+
+      <div class="tb-highlight__badges">
+        <div class="tb-mini-badge">
+          <i class="fa-regular fa-circle-check"></i>
+          <span>Garantía Total</span>
+        </div>
+        <div class="tb-mini-badge">
+          <i class="fa-regular fa-clock"></i>
+          <span>Servicio 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-intro">
+    <div class="container tb-intro__grid">
+      <div class="tb-intro__content">
+        <h2>Desatoro Profesional con Tecnología Hidrojet</h2>
+        <p>
+          El Hidrojet es la tecnología más avanzada para desatoro de tuberías.
+          Utiliza agua a alta presión para eliminar completamente las obstrucciones
+          sin dañar las tuberías. En <strong>Instalación y Servicios Manantial</strong>
+          contamos con equipos de última generación.
+        </p>
+
+        <p>
+          Atendemos emergencias las 24 horas en toda Arequipa: Cercado, Cayma,
+          Yanahuara, Miraflores, Paucarpata, Mariano Melgar, y todos los distritos.
+          ¡Respuesta rápida garantizada!
+        </p>
+
+        <div class="tb-note">
+          <h3>¿Qué es el Hidrojet?</h3>
+          <p>
+            Es un sistema que utiliza agua a presiones de hasta 4000 PSI para
+            eliminar grasa, residuos, raíces y cualquier obstrucción en tuberías
+            de desagüe. Es el método más efectivo y seguro.
+          </p>
+        </div>
+
+        <a
+          href={waLink("Hola, tengo una emergencia de desatoro. Necesito atención 24/7.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp: Emergencia 24/7
+        </a>
+      </div>
+
+      <div class="tb-intro__media">
+        <img
+          src={introImage}
+          alt="Servicio de desatoro profesional con tecnología Hidrojet"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-services">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Servicios de Desatoro Especializados</h2>
+        <p>Solucionamos todo tipo de obstrucciones en Arequipa</p>
+      </div>
+
+      <div class="tb-card-grid tb-card-grid--4">
+        {services.map((item) => (
+          <article class="tb-info-card">
+            <div class="tb-info-card__icon">
+              <i class={item.icon}></i>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-steps">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Cómo Trabajamos con Hidrojet</h2>
+        <p>Proceso profesional en 4 pasos para desatoro garantizado</p>
+      </div>
+
+      <div class="tb-card-grid tb-card-grid--4 tb-step-grid">
+        {steps.map((step) => (
+          <article class="tb-step-card">
+            <span class="tb-step-card__number">{step.number}</span>
+            <div class="tb-step-card__line"></div>
+            <div class="tb-step-card__icon">
+              <i class={step.icon}></i>
+            </div>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-gallery">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Resultados con Hidrojet</h2>
+        <p>Vea la efectividad del desatoro profesional con alta presión</p>
+      </div>
+
+      <div class="tb-gallery-grid">
+        {works.map((work) => (
+          <article class="tb-gallery-card">
+            <div class="tb-gallery-card__media">
+              <img src={work.image} alt={work.alt} loading="lazy" />
+              <span class="tb-chip tb-chip--before">ANTES</span>
+              <span class="tb-chip tb-chip--after">DESPUÉS</span>
+            </div>
+            <div class="tb-gallery-card__body">
+              <h3>{work.title}</h3>
+              <p>{work.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-benefits">
+    <div class="container tb-benefits__grid">
+      <div class="tb-benefits__content">
+        <h2>Ventajas del Hidrojet vs Métodos Tradicionales</h2>
+
+        <ul class="tb-check-list">
+          {benefits.map((item) => (
+            <li>
+              <i class="fa-regular fa-circle-check"></i>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="tb-tip">
+          <strong>¿Sabías que?</strong> El Hidrojet no solo desatasca, sino que
+          también limpia completamente las paredes internas de las tuberías,
+          eliminando acumulaciones de grasa y previniendo futuras obstrucciones.
+        </div>
+
+        <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+          <i class="fa-solid fa-phone"></i>
+          Llamar: 970 706 965
+        </a>
+      </div>
+
+      <div class="tb-benefits__image">
+        <img
+          src={benefitsImage}
+          alt="Equipos profesionales de gasfitería"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-compare">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Hidrojet Profesional vs Métodos Tradicionales</h2>
+        <p>Vea por qué el Hidrojet es la mejor opción para desatoro</p>
+      </div>
+
+      <div class="tb-compare__table-wrap">
+        <table class="tb-compare__table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Manantial<br />Profesionales</th>
+              <th>Otros<br />Competencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr>
+                <td>{row.label}</td>
+                <td>
+                  <span class={row.manantial ? "tb-result tb-result--ok" : "tb-result tb-result--no"}>
+                    <i class={row.manantial ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.manantial ? "Sí" : "No"}
+                  </span>
+                </td>
+                <td>
+                  <span class={row.other ? "tb-result tb-result--ok" : "tb-result tb-result--no"}>
+                    <i class={row.other ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.other ? "Sí" : "No"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tb-center-btn">
+        <a
+          href={waLink("Hola, quiero contratar el servicio profesional de desatoro con Hidrojet.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Contratar Servicio Profesional
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-problems">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Problemas de Desagüe que Solucionamos</h2>
+      </div>
+
+      <div class="tb-problems-grid">
+        {problems.map((group) => (
+          <article class="tb-problem-card">
+            <h3>{group.title}</h3>
+            <ul>
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-testimonials">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Clientes Satisfechos con Hidrojet</h2>
+        <p>Lo que opinan nuestros clientes sobre el servicio de desatoro</p>
+      </div>
+
+      <div class="tb-testimonial-grid">
+        {testimonials.map((item) => (
+          <article class="tb-testimonial-card">
+            <div class="tb-testimonial-card__top">
+              <span class="tb-testimonial-card__quote">
+                <i class="fa-solid fa-quote-left"></i>
+              </span>
+              <div class="tb-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+            <p class="tb-testimonial-card__text">"{item.text}"</p>
+
+            <div class="tb-testimonial-card__meta">
+              <strong>{item.name}</strong>
+              <span>{item.place}</span>
+              <small>{item.time}</small>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="tb-metrics">
+        {stats.map((item) => (
+          <article class={`tb-metric tb-metric--${item.tone}`}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-coverage">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Servicio de Desatoro en Toda Arequipa</h2>
+        <p>Atención inmediata en todos los distritos - Disponible 24/7</p>
+      </div>
+
+      <div class="tb-district-grid">
+        {districts.map((district) => (
+          <span class="tb-district-pill">{district}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tb-faq">
+    <div class="container tb-faq__container">
+      <div class="section-head section-head--center">
+        <h2>Preguntas Frecuentes sobre Desatoro</h2>
+      </div>
+
+      <div class="tb-faq__list">
+        {faqs.map((item) => (
+          <details class="tb-faq__item">
+            <summary>{item.question}</summary>
+            <div class="tb-faq__answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="tb-emergency">
+    <div class="container">
+      <div class="tb-emergency__box">
+        <h2>
+          <span>🚨</span>
+          Servicio de Emergencia 24/7
+        </h2>
+        <p>Atendemos emergencias en toda Arequipa y todos sus distritos</p>
+
+        <div class="tb-emergency__phones">
+          <a href={`tel:${PHONE_MAIN}`} class="tb-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            970 706 965
+          </a>
+          <a href={`tel:${PHONE_2}`} class="tb-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            988 970 791
+          </a>
+          <a href={`tel:${PHONE_3}`} class="tb-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            925 384 411
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</ManantialLayout>

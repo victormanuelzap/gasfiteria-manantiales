@@ -1,0 +1,697 @@
+---
+import ManantialLayout from "../layouts/ManantialLayout.astro";
+
+import TrabajosGallery from "../components/TrabajosGallery.astro";
+
+---
+
+<ManantialLayout
+  title="Gasfitero en Arequipa | Instalación y Servicios Manantial"
+  description="Gasfitería y enchapado profesional en Arequipa. Detección de fugas, desatoros, trampas de grasa, instalaciones sanitarias y enchapado."
+>
+  <!-- SECTION: HERO PRINCIPAL -->
+<section class="mn-hero">
+  <!-- fondo base real -->
+  <picture class="mn-hero__bg-picture" aria-hidden="true">
+    <source
+      srcset="/assets/fondo_hero_pc.webp"
+      media="(min-width: 901px)"
+    />
+    <img
+      src="/assets/fondo_hero_pc.webp"
+      alt=""
+      class="mn-hero__bg-image"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </picture>
+
+  <!-- lona azul / capa desvanecida -->
+  <div class="mn-hero__overlay"></div>
+
+  <!-- brillos -->
+  <div class="mn-hero__glow mn-hero__glow--one"></div>
+  <div class="mn-hero__glow mn-hero__glow--two"></div>
+
+  <div class="container mn-hero__grid">
+    <div class="mn-hero__content">
+      <div class="mn-hero__logo-wrap">
+        <img
+          src="/assets/logo-personita.png"
+          alt="Logo Instalación y Servicios Manantial"
+          class="mn-hero__logo"
+        />
+      </div>
+
+      <span class="mn-hero__eyebrow">
+        <i class="fa-solid fa-wrench"></i>
+        Gasfitero profesional en Arequipa
+      </span>
+
+      <h1 class="mn-hero__title">
+        Instalación y
+        <span class="text-yellow">Servicios Manantial</span>
+      </h1>
+
+      <p class="mn-hero__text">
+        Gasfitero y Enchapador Profesional en Arequipa. Servicios de gasfitería para toda la ciudad.
+      </p>
+
+      <div class="mn-hero__actions">
+        <a href="tel:+51970706965" class="btn btn--yellow">
+          <i class="fa-solid fa-phone"></i>
+          Llamar Ahora
+        </a>
+
+        <a href="#servicios" class="btn btn--outline-light">
+          Ver Servicios
+        </a>
+      </div>
+
+      <div class="mn-hero__features">
+        <div class="mn-hero__feature">
+          <i class="fa-regular fa-clock"></i>
+          <span>Atención 24/7</span>
+        </div>
+        <div class="mn-hero__feature">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Todo Arequipa</span>
+        </div>
+        <div class="mn-hero__feature">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Trabajo garantizado</span>
+        </div>
+      </div>
+
+      <div class="mn-hero__badge">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Servicio de emergencia disponible 24/7</span>
+      </div>
+    </div>
+
+    <div class="mn-hero__image">
+      <div class="mn-hero__image-wrap">
+        <img
+          src="/assets/seo-gasfitero.webp"
+          alt="Gasfitero profesional de Instalación y Servicios Manantial"
+          class="mn-hero__worker"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SECTION: SERVICIOS --><!-- SECTION: SERVICIOS -->
+<section class="mn-services section" id="servicios">
+  <div class="container">
+    <header class="section-head section-head--center">
+      <h2>Nuestros Servicios en Arequipa</h2>
+      <p>
+        Soluciones rápidas, profesionales y garantizadas en gasfitería,
+        instalaciones sanitarias y enchapado para hogares, negocios y empresas.
+      </p>
+    </header>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="/assets/servicios/fugas.webp" alt="Detección de Fugas de Agua" />
+          <span class="service-card__icon">
+            <i class="fa-solid fa-droplet"></i>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3>Detección de Fugas de Agua</h3>
+          <p>
+            Ubicamos fugas de agua en tuberías, grifos, baños y conexiones
+            ocultas para evitar filtraciones, daños y consumo innecesario.
+          </p>
+          <div class="service-card__actions">
+            <a href="/servicios/deteccion-de-fugas" class="btn btn--blue btn--block">
+              Ver Detalles
+            </a>
+            <a
+              href="https://wa.me/51970706965?text=Hola,%20quiero%20cotizar%20detección%20de%20fugas%20de%20agua"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--green btn--block"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="/assets/servicios/destapes.webp" alt="Desatoro de Tuberías y Desagües" />
+          <span class="service-card__icon">
+            <i class="fa-solid fa-bolt"></i>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3>Desatoro de Tuberías y Desagües</h3>
+          <p>
+            Eliminamos atoros en lavaderos, baños, cocinas y redes de desagüe
+            con equipos adecuados para una solución rápida y eficiente.
+          </p>
+          <div class="service-card__actions">
+            <a href="/servicios/desatoro-de-tuberias" class="btn btn--blue btn--block">
+              Ver Detalles
+            </a>
+            <a
+              href="https://wa.me/51970706965?text=Hola,%20quiero%20cotizar%20desatoro%20de%20tubería%20de%20desagüe"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--green btn--block"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="/assets/servicios/grasa.webp" alt="Limpieza de Trampas de Grasa" />
+          <span class="service-card__icon">
+            <i class="fa-regular fa-shield"></i>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3>Limpieza de Trampas de Grasa</h3>
+          <p>
+            Realizamos limpieza y mantenimiento de trampas de grasa para
+            restaurantes, cocinas y negocios que requieren un sistema limpio y seguro.
+          </p>
+          <div class="service-card__actions">
+            <a href="/servicios/trampas-de-grasa" class="btn btn--blue btn--block">
+              Ver Detalles
+            </a>
+            <a
+              href="https://wa.me/51970706965?text=Hola,%20quiero%20cotizar%20limpieza%20de%20trampas%20de%20grasa"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--green btn--block"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="/assets/servicios/instalaciones.webp" alt="Instalaciones Sanitarias" />
+          <span class="service-card__icon">
+            <i class="fa-solid fa-wrench"></i>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3>Instalaciones Sanitarias</h3>
+          <p>
+            Instalamos lavaderos, duchas, inodoros, griferías y accesorios
+            sanitarios con acabados funcionales, seguros y duraderos.
+          </p>
+          <div class="service-card__actions">
+            <a href="/servicios/instalaciones-sanitarias" class="btn btn--blue btn--block">
+              Ver Detalles
+            </a>
+            <a
+              href="https://wa.me/51970706965?text=Hola,%20quiero%20cotizar%20instalaciones%20sanitarias"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--green btn--block"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="/assets/servicios/enchapado.webp" alt="Enchapado de Mayólica y Porcelanato" />
+          <span class="service-card__icon">
+            <i class="fa-solid fa-house"></i>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3>Enchapado de Mayólica y Porcelanato</h3>
+          <p>
+            Colocamos mayólica, porcelanato y revestimientos con precisión,
+            nivelación correcta y acabados limpios para todo tipo de espacios.
+          </p>
+          <div class="service-card__actions">
+            <a href="/servicios/enchapado" class="btn btn--blue btn--block">
+              Ver Detalles
+            </a>
+            <a
+              href="https://wa.me/51970706965?text=Hola,%20quiero%20cotizar%20enchapado%20de%20mayólica%20y%20porcelanato"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--green btn--block"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__image">
+          <img src="/assets/servicios/general.webp" alt="Gasfitería en General" />
+          <span class="service-card__icon">
+            <i class="fa-regular fa-clock"></i>
+          </span>
+        </div>
+        <div class="service-card__body">
+          <h3>Gasfitería en General</h3>
+          <p>
+            Atendemos reparaciones, cambios, mantenimiento e instalaciones
+            de gasfitería para casas, departamentos, locales y negocios.
+          </p>
+          <div class="service-card__actions">
+            <a href="/servicios/gasfiteria-general" class="btn btn--blue btn--block">
+              Ver Detalles
+            </a>
+            <a
+              href="https://wa.me/51970706965?text=Hola,%20quiero%20cotizar%20gasfitería%20en%20general"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--green btn--block"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: SOBRE NOSOTROS -->
+<section class="mn-values section" id="sobre-nosotros">
+  <div class="container">
+    <header class="section-head section-head--center">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        Somos un equipo de profesionales especializados en gasfitería y enchapado,
+        comprometidos con la excelencia y la satisfacción de nuestros clientes.
+      </p>
+    </header>
+
+    <div class="values-grid">
+      <article class="value-card">
+        <div class="value-card__icon">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+        <h3>10+</h3>
+        <p>Años de Experiencia</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-card__icon">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <h3>500+</h3>
+        <p>Clientes Satisfechos</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-card__icon">
+          <i class="fa-regular fa-award"></i>
+        </div>
+        <h3>100%</h3>
+        <p>Trabajos Garantizados</p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-card__icon">
+          <i class="fa-solid fa-wrench"></i>
+        </div>
+        <h3>24/7</h3>
+        <p>Disponibilidad</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION: EXPERIENCIA Y PROFESIONALISMO -->
+<section class="mn-about section" id="nosotros">
+  <div class="container">
+    <div class="mn-about__grid">
+      <div class="mn-about__image">
+        <img
+          src="/assets/seo-gasfitero.png"
+          alt="Técnico profesional de Instalación y Servicios Manantial"
+        />
+      </div>
+
+      <div class="mn-about__content">
+        <h2>Experiencia y Profesionalismo</h2>
+
+        <p>
+          <strong>Instalación y Servicios Manantial</strong> es una empresa con más de
+          10 años de experiencia brindando soluciones profesionales en gasfitería y
+          enchapado en toda la ciudad de Arequipa.
+        </p>
+
+        <p>
+          Atendemos todos los distritos de Arequipa con servicios de instalaciones
+          sanitarias, detección de fugas, desatoros con hidrojet, trampas de grasa
+          y trabajos de enchapado con mayólica y porcelanato.
+        </p>
+
+        <p>
+          Nos enorgullece ofrecer un servicio rápido, confiable y con garantía para
+          toda Arequipa. Contamos con las herramientas y el conocimiento necesario
+          para cada trabajo, desde el más simple hasta el más complejo.
+        </p>
+
+        <div class="mn-about__box">
+          <h3>
+            <i class="fa-regular fa-award"></i>
+            Certificaciones y Experiencia
+          </h3>
+
+          <ul class="check-list">
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Técnico especializado en gasfitería residencial y comercial</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Experto en detección de fugas con equipos especializados</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Capacitación en enchapado y acabados de alta calidad</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Manejo de equipos hidrojet para desatoros profesionales</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: NUESTROS VALORES -->
+<section class="mn-values section" id="valores">
+  <div class="container">
+    <header class="section-head section-head--center">
+      <h2>Nuestros Valores</h2>
+    </header>
+
+    <div class="values-grid">
+      <article class="value-card">
+        <div class="value-card__icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3>Confianza</h3>
+        <p>
+          Trabajamos con total transparencia y honestidad en cada servicio.
+        </p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-card__icon">
+          <i class="fa-solid fa-medal"></i>
+        </div>
+        <h3>Calidad</h3>
+        <p>
+          Utilizamos materiales de primera calidad y técnicas profesionales.
+        </p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-card__icon">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+        <h3>Puntualidad</h3>
+        <p>
+          Respetamos tu tiempo. Llegamos cuando acordamos.
+        </p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-card__icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h3>Garantía</h3>
+        <p>
+          Todos nuestros trabajos cuentan con garantía de satisfacción.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SECTION: TRABAJOS REALIZADOS -->
+<TrabajosGallery />
+
+
+
+
+
+
+
+
+
+
+
+<!-- SECTION: TESTIMONIOS -->
+<section class="mn-testimonials section" id="testimonios">
+  <div class="container">
+    <header class="section-head section-head--center">
+      <h2>Lo Que Dicen Nuestros Clientes</h2>
+      <p>
+        La satisfacción de nuestros clientes es nuestra mejor carta de presentación
+      </p>
+
+      <div class="testimonials-rating">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <span>5.0 / 5.0</span>
+      </div>
+    </header>
+
+    <div class="testimonials-grid">
+      <article class="testimonial-card">
+        <div class="testimonial-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="testimonial-text">
+          "Excelente servicio. Detectaron y repararon una fuga de agua que otros
+          gasfiteros no pudieron encontrar. Muy profesionales y puntuales."
+        </p>
+
+        <span class="testimonial-tag">Detección de Fugas</span>
+        <hr />
+        <h3>María González</h3>
+        <small>Cayma, Arequipa</small>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="testimonial-text">
+          "Llamé por una emergencia de desagüe a las 2am y vinieron en menos de 30
+          minutos. Resolvieron todo rápidamente. 100% recomendado."
+        </p>
+
+        <span class="testimonial-tag">Desatoro 24/7</span>
+        <hr />
+        <h3>Carlos Mendoza</h3>
+        <small>Cercado, Arequipa</small>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="testimonial-text">
+          "El enchapado de mi baño quedó perfecto. Trabajo muy prolijo y limpio.
+          El precio fue justo y cumplieron con los plazos."
+        </p>
+
+        <span class="testimonial-tag">Enchapado</span>
+        <hr />
+        <h3>Rosa Huamán</h3>
+        <small>Yanahuara, Arequipa</small>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="testimonial-text">
+          "Instalaron mi trampa de grasa del restaurante de forma profesional.
+          Explicaron todo el proceso y dieron mantenimiento incluido."
+        </p>
+
+        <span class="testimonial-tag">Trampa de Grasa</span>
+        <hr />
+        <h3>Jorge Paredes</h3>
+        <small>Sachaca, Arequipa</small>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="testimonial-text">
+          "Hicieron toda la gasfitería de mi casa nueva. Trabajo impecable,
+          materiales de calidad y muy buen trato. Totalmente confiables."
+        </p>
+
+        <span class="testimonial-tag">Gasfitería General</span>
+        <hr />
+        <h3>Patricia Silva</h3>
+        <small>Miraflores, Arequipa</small>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-quote">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="testimonial-text">
+          "El desatoro con hidrojet fue súper efectivo. Dejaron todo limpio y
+          funcionando perfectamente. Muy honestos con los precios."
+        </p>
+
+        <span class="testimonial-tag">Hidrojet</span>
+        <hr />
+        <h3>Luis Chambi</h3>
+        <small>Paucarpata, Arequipa</small>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: CTA FINAL -->
+<section class="mn-final-cta section">
+  <div class="container">
+    <div class="final-cta-box">
+      <h2>¿Necesitas un servicio de gasfitería confiable?</h2>
+      <p>Únete a cientos de clientes satisfechos en Arequipa</p>
+
+      <div class="final-cta-actions">
+        <a
+          href="https://wa.me/51970706965?text=Hola,%20quiero%20solicitar%20un%20servicio%20de%20gasfitería"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--green"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Solicitar Servicio por WhatsApp
+        </a>
+
+        <a href="tel:+51970706965" class="btn btn--light">
+          <i class="fa-solid fa-phone"></i>
+          Llamar Ahora: 970 706 965
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- aquí pegas el resto tal como lo tienes:
+       about, values, gallery, coverage, testimonials y final cta -->
+</ManantialLayout>

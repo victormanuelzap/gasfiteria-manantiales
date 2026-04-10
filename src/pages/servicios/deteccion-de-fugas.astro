@@ -1,0 +1,555 @@
+---
+import ManantialLayout from "../../layouts/ManantialLayout.astro";
+
+const PHONE_MAIN = "970706965";
+const PHONE_2 = "988970791";
+const PHONE_3 = "925384411";
+const WHATSAPP = "51970706965";
+
+const heroImage = "/assets/servicios/fugas.webp";
+const benefitsImage = "/assets/servicios/fugas-beneficios.webp";
+
+
+const waLink = (text: string) => 
+  `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+const problems = [
+  {
+    icon: "fa-solid fa-droplet",
+    title: "Fugas en Tuberías",
+    text: "Detectamos y reparamos fugas ocultas en paredes, pisos y techos",
+  },
+  {
+    icon: "fa-solid fa-faucet-drip",
+    title: "Grifos que Gotean",
+    text: "Reparación de grifos y llaves de paso con fugas",
+  },
+  {
+    icon: "fa-solid fa-toilet",
+    title: "Inodoros con Fuga",
+    text: "Solución a fugas en tanques y válvulas de inodoros",
+  },
+  {
+    icon: "fa-solid fa-temperature-high",
+    title: "Fugas en Calentadores",
+    text: "Reparación de fugas en termas y calentadores de agua",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    icon: "fa-solid fa-magnifying-glass-location",
+    title: "Inspección Inicial",
+    text: "Evaluamos la situación y localizamos la zona afectada con equipos especializados",
+  },
+  {
+    number: "2",
+    icon: "fa-solid fa-droplet-slash",
+    title: "Detección Precisa",
+    text: "Usamos tecnología de punta para detectar la fuga sin romper paredes ni pisos",
+  },
+  {
+    number: "3",
+    icon: "fa-solid fa-screwdriver-wrench",
+    title: "Reparación Profesional",
+    text: "Reparamos la fuga con repuestos de calidad garantizados",
+  },
+  {
+    number: "4",
+    icon: "fa-solid fa-file-shield",
+    title: "Verificación y Garantía",
+    text: "Probamos el sistema y entregamos garantía por escrito del trabajo realizado",
+  },
+];
+
+const works = [
+  {
+    title: "Reparación de Grifo",
+    text: "Grifo con fuga constante reparado y funcionando perfectamente",
+    image: "/assets/servicios/fugas-trabajo-1.webp",
+    alt: "Reparación profesional de grifo con fuga en Arequipa",
+  },
+  {
+    title: "Tubería Reparada",
+    text: "Fuga en tubería detectada y reparada sin daños estructurales",
+    image: "/assets/servicios/fugas-trabajo-2.webp",
+    alt: "Tubería reparada luego de detección de fuga de agua",
+  },
+  {
+    title: "Sistema Sanitario",
+    text: "Instalación completa renovada sin fugas",
+    image: "/assets/servicios/fugas-trabajo-3.webp",
+    alt: "Sistema sanitario reparado sin fugas",
+  },
+];
+
+const benefits = [
+  "Detección precisa con equipos especializados",
+  "Reparación inmediata de fugas",
+  "Prevención de daños mayores",
+  "Ahorro en consumo de agua",
+  "Servicio 24/7 en toda Arequipa",
+  "Garantía en todos los trabajos",
+];
+
+const compareRows = [
+  { label: "Equipos de detección especializados", manantial: true, other: false },
+  { label: "Servicio 24/7 todos los días", manantial: true, other: false },
+  { label: "Garantía por escrito", manantial: true, other: false },
+  { label: "Reparación sin romper paredes", manantial: true, other: false },
+  { label: "Presupuesto sin costo", manantial: true, other: true },
+  { label: "Técnicos certificados", manantial: true, other: false },
+  { label: "Respuesta inmediata", manantial: true, other: false },
+];
+
+const testimonials = [
+  {
+    text: "Excelente servicio! Detectaron una fuga oculta en mi baño sin romper nada. Muy profesionales y rápidos.",
+    name: "María Rodríguez",
+    place: "Cayma, Arequipa",
+    time: "Hace 1 semana",
+  },
+  {
+    text: "Llamé de emergencia un domingo y llegaron en 30 minutos. Solucionaron el problema de inmediato. 100% recomendados.",
+    name: "Carlos Mendoza",
+    place: "Cercado, Arequipa",
+    time: "Hace 2 semanas",
+  },
+  {
+    text: "Tenía fugas en varias tuberías y me ayudaron a identificarlas todas. El precio fue muy justo y el trabajo impecable.",
+    name: "Ana Flores",
+    place: "Yanahuara, Arequipa",
+    time: "Hace 1 mes",
+  },
+];
+
+const stats = [
+  { value: "4.9/5", label: "Calificación promedio", tone: "blue" },
+  { value: "500+", label: "Clientes satisfechos", tone: "green" },
+  { value: "100%", label: "Garantía en trabajos", tone: "violet" },
+  { value: "15+", label: "Años de experiencia", tone: "orange" },
+];
+
+const districts = [
+  "Cercado",
+  "Cayma",
+  "Yanahuara",
+  "Miraflores",
+  "Paucarpata",
+  "Mariano Melgar",
+  "Hunter",
+  "Socabaya",
+  "Sachaca",
+  "Alto Selva Alegre",
+  "Cerro Colorado",
+  "Jacobo Hunter",
+  "José Luis Bustamante",
+  "Characato",
+  "Tiabaya",
+  "Sabandia",
+];
+
+const faqs = [
+  "¿Cómo detectan las fugas ocultas?",
+  "¿Cuánto tiempo toma detectar y reparar una fuga?",
+  "¿Atienden emergencias de noche o fines de semana?",
+  "¿Dan garantía por el trabajo realizado?",
+  "¿Cuánto cuesta el servicio de detección de fugas?",
+];
+---
+
+<ManantialLayout
+  title="Detección de Fugas de Agua en Arequipa | Instalación y Servicios Manantial"
+  description="Servicio especializado en detección y reparación de fugas de agua en Arequipa. Atención 24/7, evaluación gratis y trabajos con garantía."
+>
+  <style is:global>
+    @import "/css/fugas.css";
+  </style>
+
+  <section class="fg-hero">
+    <picture class="fg-hero__bg">
+      <img
+        src={heroImage}
+        alt="Detección de fugas de agua en Arequipa"
+        class="fg-hero__bg-img"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </picture>
+
+    <div class="fg-hero__overlay"></div>
+
+    <div class="container fg-hero__container">
+      <a href="/servicios" class="fg-back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        Volver a Servicios
+      </a>
+
+      <div class="fg-hero__content">
+        <h1 class="fg-hero__title">Detección de Fugas de Agua en Arequipa</h1>
+        <p class="fg-hero__text">
+          Servicio especializado en detección y reparación de fugas con equipos
+          de última generación. Atendemos toda Arequipa 24/7.
+        </p>
+
+        <div class="fg-hero__actions">
+          <a
+            href={waLink("Hola, necesito una cotización para detección de fugas de agua en Arequipa.")}
+            class="btn btn--green"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Solicitar Cotización
+          </a>
+
+          <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+            <i class="fa-solid fa-phone"></i>
+            Llamar Ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fg-highlight">
+    <div class="container fg-highlight__wrap">
+      <div class="fg-highlight__text">
+        <h2>
+          <span>🎯</span>
+          Evaluación GRATIS + Detección con Equipos Especializados
+        </h2>
+        <p>Trabajamos con garantía y repuestos de calidad</p>
+      </div>
+
+      <div class="fg-highlight__badges">
+        <div class="fg-mini-badge">
+          <i class="fa-regular fa-circle-check"></i>
+          <span>Garantía Total</span>
+        </div>
+        <div class="fg-mini-badge">
+          <i class="fa-regular fa-clock"></i>
+          <span>Servicio 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-intro">
+    <div class="container fg-intro__grid">
+      <div class="fg-intro__content">
+        <h2>¿Por qué es importante detectar fugas a tiempo?</h2>
+        <p>
+          Las fugas de agua pueden generar grandes pérdidas económicas y daños
+          estructurales en su propiedad. En <strong>Instalación y Servicios Manantial</strong>,
+          contamos con tecnología especializada para detectar fugas ocultas sin
+          romper paredes ni pisos innecesariamente.
+        </p>
+        <p>
+          Atendemos toda la ciudad de Arequipa, incluyendo todos los distritos:
+          Cercado, Cayma, Yanahuara, Miraflores, Paucarpata, y más. Nuestro
+          servicio está disponible las 24 horas del día, los 7 días de la semana.
+        </p>
+
+        <a
+          href={waLink("Hola, quiero solicitar una cotización gratis para detección de fugas.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Solicitar Cotización Gratis
+        </a>
+      </div>
+
+      <div class="fg-stats">
+        <article class="fg-stat-card fg-stat-card--blue">
+          <strong>24/7</strong>
+          <span>Servicio de Emergencia</span>
+        </article>
+        <article class="fg-stat-card fg-stat-card--green">
+          <strong>100%</strong>
+          <span>Garantizado</span>
+        </article>
+        <article class="fg-stat-card fg-stat-card--violet">
+          <strong>16</strong>
+          <span>Distritos de Arequipa</span>
+        </article>
+        <article class="fg-stat-card fg-stat-card--orange">
+          <strong>+15</strong>
+          <span>Años de Experiencia</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-problems">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Problemas que Solucionamos</h2>
+        <p>Expertos en todo tipo de fugas de agua en Arequipa</p>
+      </div>
+
+      <div class="fg-card-grid fg-card-grid--4">
+        {problems.map((item) => (
+          <article class="fg-info-card">
+            <div class="fg-info-card__icon">
+              <i class={item.icon}></i>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-steps">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Nuestro Proceso de Trabajo</h2>
+        <p>
+          4 pasos simples para solucionar sus fugas de agua de manera profesional
+        </p>
+      </div>
+
+      <div class="fg-card-grid fg-card-grid--4 fg-step-grid">
+        {steps.map((step) => (
+          <article class="fg-step-card">
+            <span class="fg-step-card__number">{step.number}</span>
+            <div class="fg-step-card__icon">
+              <i class={step.icon}></i>
+            </div>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-gallery">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Trabajos Realizados</h2>
+        <p>Vea la calidad de nuestro trabajo en detección y reparación de fugas</p>
+      </div>
+
+      <div class="fg-gallery-grid">
+        {works.map((work) => (
+          <article class="fg-gallery-card">
+            <div class="fg-gallery-card__media">
+              <img src={work.image} alt={work.alt} loading="lazy" />
+              <span class="fg-chip fg-chip--before">ANTES</span>
+              <span class="fg-chip fg-chip--after">DESPUÉS</span>
+            </div>
+            <div class="fg-gallery-card__body">
+              <h3>{work.title}</h3>
+              <p>{work.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-benefits">
+    <div class="container fg-benefits__grid">
+      <div class="fg-benefits__image">
+        <img
+          src={benefitsImage}
+          alt="Gasfitero profesional detectando fugas"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="fg-benefits__content">
+        <h2>Beneficios de Nuestro Servicio</h2>
+
+        <ul class="fg-check-list">
+          {benefits.map((item) => (
+            <li>
+              <i class="fa-regular fa-circle-check"></i>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+          <i class="fa-solid fa-phone"></i>
+          Llamar Ahora: 970 706 965
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-compare">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>¿Por qué elegirnos?</h2>
+        <p>Compare nuestro servicio profesional con otros gasfiteros en Arequipa</p>
+      </div>
+
+      <div class="fg-compare__table-wrap">
+        <table class="fg-compare__table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Manantial<br />Profesionales</th>
+              <th>Otros<br />Competencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr>
+                <td>{row.label}</td>
+                <td>
+                  <span class={row.manantial ? "fg-result fg-result--ok" : "fg-result fg-result--no"}>
+                    <i class={row.manantial ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.manantial ? "Sí" : "No"}
+                  </span>
+                </td>
+                <td>
+                  <span class={row.other ? "fg-result fg-result--ok" : "fg-result fg-result--no"}>
+                    <i class={row.other ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.other ? "Sí" : "No"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fg-center-btn">
+        <a
+          href={waLink("Hola, deseo contratar el servicio profesional de detección de fugas.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Contratar Servicio Profesional
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-testimonials">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Lo que Dicen Nuestros Clientes</h2>
+        <p>Opiniones reales de clientes satisfechos en Arequipa</p>
+      </div>
+
+      <div class="fg-testimonial-grid">
+        {testimonials.map((item) => (
+          <article class="fg-testimonial-card">
+            <div class="fg-testimonial-card__top">
+              <span class="fg-testimonial-card__quote">
+                <i class="fa-solid fa-quote-left"></i>
+              </span>
+              <div class="fg-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+            <p class="fg-testimonial-card__text">“{item.text}”</p>
+
+            <div class="fg-testimonial-card__meta">
+              <strong>{item.name}</strong>
+              <span>{item.place}</span>
+              <small>{item.time}</small>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="fg-metrics">
+        {stats.map((item) => (
+          <article class={`fg-metric fg-metric--${item.tone}`}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-coverage">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Cobertura en Toda Arequipa</h2>
+        <p>
+          Atendemos todos los distritos de Arequipa con el mismo profesionalismo y rapidez
+        </p>
+      </div>
+
+      <div class="fg-district-grid">
+        {districts.map((district) => (
+          <span class="fg-district-pill">{district}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section fg-faq">
+    <div class="container fg-faq__container">
+      <div class="section-head section-head--center">
+        <h2>Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="fg-faq__list">
+        {faqs.map((question) => (
+          <details class="fg-faq__item">
+            <summary>{question}</summary>
+            <div class="fg-faq__answer">
+              <!-- ===================================================== -->
+              <!-- PEGA AQUÍ LA RESPUESTA HTML DE ESTA PREGUNTA FRECUENTE -->
+              <!-- Ejemplo:
+              <p>Texto de respuesta...</p>
+              <ul>
+                <li>Punto 1</li>
+                <li>Punto 2</li>
+              </ul>
+              -->
+              <!-- ===================================================== -->
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="fg-emergency">
+    <div class="container">
+      <div class="fg-emergency__box">
+        <h2>
+          <i class="fa-solid fa-sink"></i>
+          Servicio de Emergencia 24/7
+        </h2>
+        <p>Atendemos emergencias en toda Arequipa y todos sus distritos</p>
+
+        <div class="fg-emergency__phones">
+          <a href={`tel:${PHONE_MAIN}`} class="fg-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            970 706 965
+          </a>
+          <a href={`tel:${PHONE_2}`} class="fg-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            988 970 791
+          </a>
+          <a href={`tel:${PHONE_3}`} class="fg-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            925 384 411
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</ManantialLayout>

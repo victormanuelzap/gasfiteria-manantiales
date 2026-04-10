@@ -1,0 +1,573 @@
+---
+import ManantialLayout from "../../layouts/ManantialLayout.astro";
+
+const PHONE_MAIN = "970706965";
+const PHONE_2 = "988970791";
+const PHONE_3 = "925384411";
+const WHATSAPP = "51970706965";
+
+const heroImage = "/assets/servicios/sanitarias-hero.webp";
+const benefitsImage = "/assets/servicios/sanitarias-beneficios.webp";
+
+const waLink = (text: string) =>
+  `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+const services = [
+  {
+    icon: "fa-solid fa-toilet",
+    title: "Inodoros y Tanques",
+    text: "Instalación de inodoros, tanques bajos y altos, sistemas ahorradores",
+  },
+  {
+    icon: "fa-solid fa-faucet",
+    title: "Lavabos y Lavatorios",
+    text: "Instalación de lavabos, lavatorios con pedestal o empotrados",
+  },
+  {
+    icon: "fa-solid fa-shower",
+    title: "Duchas y Bañeras",
+    text: "Instalación de duchas, regaderas, bañeras y cabinas de baño",
+  },
+  {
+    icon: "fa-solid fa-wrench",
+    title: "Grifería Completa",
+    text: "Instalación de grifos para cocina, baño, jardín y servicios",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    icon: "fa-solid fa-comments",
+    title: "Asesoría y Cotización",
+    text: "Te asesoramos en la elección de productos y presupuestamos sin costo",
+  },
+  {
+    number: "2",
+    icon: "fa-solid fa-ruler-combined",
+    title: "Preparación del Área",
+    text: "Preparamos el espacio y verificamos tuberías y conexiones existentes",
+  },
+  {
+    number: "3",
+    icon: "fa-solid fa-screwdriver-wrench",
+    title: "Instalación Profesional",
+    text: "Instalamos con precisión, nivelación perfecta y sellado garantizado",
+  },
+  {
+    number: "4",
+    icon: "fa-solid fa-shield-halved",
+    title: "Pruebas y Garantía",
+    text: "Probamos el funcionamiento y entregamos garantía por escrito",
+  },
+];
+
+const works = [
+  {
+    title: "Baño Completo",
+    text: "Instalación completa de sanitarios en baño renovado",
+    beforeImage: "/assets/servicios/sanitarias-antes-1.webp",
+    afterImage: "/assets/servicios/sanitarias-despues-1.webp",
+    beforeAlt: "Antes de instalación de baño completo",
+    afterAlt: "Después de instalación de baño completo",
+  },
+  {
+    title: "Inodoro y Lavabo",
+    text: "Reemplazo de sanitarios antiguos por modernos",
+    beforeImage: "/assets/servicios/sanitarias-antes-2.webp",
+    afterImage: "/assets/servicios/sanitarias-despues-2.webp",
+    beforeAlt: "Antes de cambio de inodoro y lavabo",
+    afterAlt: "Después de cambio de inodoro y lavabo",
+  },
+  {
+    title: "Cocina Nueva",
+    text: "Instalación de lavadero y grifería de cocina",
+    beforeImage: "/assets/servicios/sanitarias-antes-3.webp",
+    afterImage: "/assets/servicios/sanitarias-despues-3.webp",
+    beforeAlt: "Antes de instalación de cocina",
+    afterAlt: "Después de instalación de cocina",
+  },
+];
+
+const benefits = [
+  "Instalación profesional certificada",
+  "Materiales de primera calidad",
+  "Garantía en todos los trabajos",
+  "Personal técnico especializado",
+  "Asesoría en selección de productos",
+  "Precios competitivos en Arequipa",
+];
+
+const compareRows = [
+  { label: "Garantía por escrito en instalación", manantial: true, other: false },
+  { label: "Asesoría en elección de productos", manantial: true, other: false },
+  { label: "Instalación con nivel láser", manantial: true, other: false },
+  { label: "Materiales selladores premium", manantial: true, other: false },
+  { label: "Pruebas de presión y fugas", manantial: true, other: false },
+  { label: "Limpieza final del área", manantial: true, other: true },
+  { label: "Servicio 24/7", manantial: true, other: false },
+];
+
+const testimonials = [
+  {
+    text: "Instalaron todo mi baño nuevo. Trabajo impecable, muy ordenados y limpios. El inodoro quedó perfectamente nivelado.",
+    name: "Mónica Castillo",
+    place: "Yanahuara, Arequipa",
+    time: "Hace 1 semana",
+  },
+  {
+    text: "Necesitaba cambiar urgente mi inodoro. Llegaron el mismo día y lo instalaron perfecto. Super recomendados!",
+    name: "Pedro Ramírez",
+    place: "Cayma, Arequipa",
+    time: "Hace 2 semanas",
+  },
+  {
+    text: "Me asesoraron en la compra de los sanitarios y los instalaron de maravilla. Muy profesionales y honestos.",
+    name: "Sandra Flores",
+    place: "Cercado, Arequipa",
+    time: "Hace 3 semanas",
+  },
+];
+
+const stats = [
+  { value: "4.9/5", label: "Calificación promedio", tone: "blue" },
+  { value: "500+", label: "Clientes satisfechos", tone: "green" },
+  { value: "100%", label: "Garantía en trabajos", tone: "violet" },
+  { value: "15+", label: "Años de experiencia", tone: "orange" },
+];
+
+const districts = [
+  "Cercado",
+  "Cayma",
+  "Yanahuara",
+  "Miraflores",
+  "Paucarpata",
+  "Mariano Melgar",
+  "Hunter",
+  "Socabaya",
+  "Sachaca",
+  "Alto Selva Alegre",
+  "Cerro Colorado",
+  "Jacobo Hunter",
+  "José Luis Bustamante",
+  "Characato",
+  "Tiabaya",
+  "Sabandia",
+];
+
+const faqs = [
+  {
+    question: "¿Incluyen el costo de los sanitarios?",
+    answer:
+      "<p>No necesariamente. Podemos trabajar con sanitarios comprados por usted o incluirlos en una cotización completa si desea que nos encarguemos de todo.</p><p>También le asesoramos para elegir modelos según su presupuesto, espacio y tipo de instalación.</p>",
+  },
+  {
+    question: "¿Cuánto tiempo toma instalar un inodoro?",
+    answer:
+      "<p>En una instalación estándar, el trabajo suele tomar entre 1 y 3 horas.</p><p>El tiempo puede variar si hay que corregir tuberías, nivelar la base, cambiar accesorios o solucionar filtraciones previas.</p>",
+  },
+  {
+    question: "¿Dan garantía por la instalación?",
+    answer:
+      "<p>Sí. Realizamos pruebas de funcionamiento y entregamos garantía por escrito según el tipo de trabajo realizado.</p><p>Usamos materiales de calidad y dejamos todo probado antes de terminar.</p>",
+  },
+  {
+    question: "¿Pueden instalar el mismo día?",
+    answer:
+      "<p>Sí, en muchos casos podemos atender el mismo día, especialmente en emergencias o reemplazos puntuales.</p><p>La disponibilidad depende del distrito, la carga de trabajo y el tipo de instalación requerida.</p>",
+  },
+];
+---
+
+<ManantialLayout
+  title="Instalaciones Sanitarias en Arequipa | Instalación y Servicios Manantial"
+  description="Instalación profesional de inodoros, lavabos, duchas, grifería y sanitarios en Arequipa. Atención 24/7 con garantía por escrito."
+>
+  <style is:global>
+    @import "/css/sanitarias.css";
+  </style>
+
+  <div class="sn-page">
+    <section class="sn-hero">
+      <picture class="sn-hero__bg">
+        <img
+          src={heroImage}
+          alt="Instalaciones sanitarias profesionales en Arequipa"
+          class="sn-hero__bg-img"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </picture>
+
+      <div class="sn-hero__overlay"></div>
+
+      <div class="container sn-hero__container">
+        <a href="/servicios" class="sn-back-link">
+          <i class="fa-solid fa-arrow-left"></i>
+          Volver a Servicios
+        </a>
+
+        <div class="sn-hero__content">
+          <h1 class="sn-hero__title">Instalaciones Sanitarias en Arequipa</h1>
+          <p class="sn-hero__text">
+            Instalación profesional de inodoros, lavabos, duchas, grifería y todos
+            los sanitarios para su hogar o negocio. Garantía incluida.
+          </p>
+
+          <div class="sn-hero__actions">
+            <a
+              href={waLink("Hola, necesito una cotización para instalaciones sanitarias en Arequipa.")}
+              class="btn btn--green"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              Solicitar Cotización
+            </a>
+
+            <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+              <i class="fa-solid fa-phone"></i>
+              Llamar Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-highlight">
+      <div class="container sn-highlight__wrap">
+        <div class="sn-highlight__text">
+          <h2>
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            Instalación Profesional con Garantía por Escrito
+          </h2>
+          <p>Trabajamos con garantía y repuestos de calidad</p>
+        </div>
+
+        <div class="sn-highlight__badges">
+          <div class="sn-mini-badge">
+            <i class="fa-regular fa-circle-check"></i>
+            <span>Garantía Total</span>
+          </div>
+          <div class="sn-mini-badge">
+            <i class="fa-regular fa-clock"></i>
+            <span>Servicio 24/7</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-intro sn-section">
+      <div class="container sn-intro__grid">
+        <div class="sn-intro__content">
+          <h2>Instalamos Todo Tipo de Sanitarios</h2>
+
+          <p>
+            Ya sea que esté renovando su baño, construyendo una casa nueva o
+            simplemente necesite reemplazar un sanitario, en
+            <strong> Instalación y Servicios Manantial </strong>
+            realizamos instalaciones profesionales con garantía.
+          </p>
+
+          <p>
+            Trabajamos con todas las marcas: Trebol, Vainsa, Corona, FV, Roca y más.
+            Le asesoramos en la elección del producto ideal según su presupuesto y
+            necesidades.
+          </p>
+
+          <a
+            href={waLink("Hola, deseo una cotización gratis para instalación sanitaria.")}
+            class="btn btn--green"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Solicitar Cotización Gratis
+          </a>
+        </div>
+
+        <div class="sn-stats">
+          <article class="sn-stat-card sn-stat-card--blue">
+            <strong>100%</strong>
+            <span>Con Garantía</span>
+          </article>
+          <article class="sn-stat-card sn-stat-card--green">
+            <strong>24/7</strong>
+            <span>Servicio Disponible</span>
+          </article>
+          <article class="sn-stat-card sn-stat-card--violet">
+            <strong>1000+</strong>
+            <span>Instalaciones</span>
+          </article>
+          <article class="sn-stat-card sn-stat-card--orange">
+            <strong>+15</strong>
+            <span>Años Experiencia</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-services sn-section">
+      <div class="container">
+        <div class="sn-section-head sn-section-head--center">
+          <h2>Servicios de Instalación</h2>
+          <p>Instalamos todo tipo de sanitarios y grifería en Arequipa</p>
+        </div>
+
+        <div class="sn-card-grid sn-card-grid--4">
+          {services.map((item) => (
+            <article class="sn-service-card">
+              <div class="sn-service-card__icon">
+                <i class={item.icon}></i>
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-steps sn-section">
+      <div class="container">
+        <div class="sn-section-head sn-section-head--center">
+          <h2>Proceso de Instalación</h2>
+          <p>4 pasos para una instalación perfecta y garantizada</p>
+        </div>
+
+        <div class="sn-card-grid sn-card-grid--4 sn-step-grid">
+          {steps.map((step) => (
+            <article class="sn-step-card">
+              <span class="sn-step-card__number">{step.number}</span>
+              <div class="sn-step-card__icon">
+                <i class={step.icon}></i>
+              </div>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-gallery sn-section">
+      <div class="container">
+        <div class="sn-section-head sn-section-head--center">
+          <h2>Instalaciones Realizadas</h2>
+          <p>Vea la calidad de nuestro trabajo profesional</p>
+        </div>
+
+        <div class="sn-gallery-grid">
+          {works.map((work) => (
+            <article class="sn-work-card">
+              <div class="sn-work-card__compare">
+                <div class="sn-work-card__pane">
+                  <img src={work.beforeImage} alt={work.beforeAlt} loading="lazy" />
+                  <span class="sn-chip sn-chip--before">ANTES</span>
+                </div>
+                <div class="sn-work-card__pane">
+                  <img src={work.afterImage} alt={work.afterAlt} loading="lazy" />
+                  <span class="sn-chip sn-chip--after">DESPUÉS</span>
+                </div>
+              </div>
+
+              <div class="sn-work-card__body">
+                <h3>{work.title}</h3>
+                <p>{work.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-benefits sn-section">
+      <div class="container sn-benefits__grid">
+        <div class="sn-benefits__image">
+          <img
+            src={benefitsImage}
+            alt="Instalación sanitaria profesional"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="sn-benefits__content">
+          <h2>Beneficios de Nuestro Servicio</h2>
+
+          <ul class="sn-check-list">
+            {benefits.map((item) => (
+              <li>
+                <i class="fa-regular fa-circle-check"></i>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+            <i class="fa-solid fa-phone"></i>
+            Llamar: 970 706 965
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-compare sn-section">
+      <div class="container">
+        <div class="sn-section-head sn-section-head--center">
+          <h2>¿Por qué elegirnos para sus instalaciones?</h2>
+          <p>Calidad profesional que hace la diferencia</p>
+        </div>
+
+        <div class="sn-compare__table-wrap">
+          <table class="sn-compare__table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Manantial<br />Profesionales</th>
+                <th>Otros<br />Competencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              {compareRows.map((row) => (
+                <tr>
+                  <td>{row.label}</td>
+                  <td>
+                    <span class={row.manantial ? "sn-result sn-result--ok" : "sn-result sn-result--no"}>
+                      <i class={row.manantial ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                      {row.manantial ? "Sí" : "No"}
+                    </span>
+                  </td>
+                  <td>
+                    <span class={row.other ? "sn-result sn-result--ok" : "sn-result sn-result--no"}>
+                      <i class={row.other ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                      {row.other ? "Sí" : "No"}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sn-center-btn">
+          <a
+            href={waLink("Hola, deseo contratar el servicio profesional de instalaciones sanitarias.")}
+            class="btn btn--green"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Contratar Servicio Profesional
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-testimonials sn-section">
+      <div class="container">
+        <div class="sn-section-head sn-section-head--center">
+          <h2>Clientes Satisfechos</h2>
+          <p>Testimonios reales de instalaciones realizadas</p>
+        </div>
+
+        <div class="sn-testimonial-grid">
+          {testimonials.map((item) => (
+            <article class="sn-testimonial-card">
+              <div class="sn-testimonial-card__top">
+                <span class="sn-testimonial-card__quote">
+                  <i class="fa-solid fa-quote-left"></i>
+                </span>
+
+                <div class="sn-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+
+              <p class="sn-testimonial-card__text">“{item.text}”</p>
+
+              <div class="sn-testimonial-card__meta">
+                <div>
+                  <strong>{item.name}</strong>
+                  <span>{item.place}</span>
+                </div>
+                <small>{item.time}</small>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="sn-metrics">
+          {stats.map((item) => (
+            <article class={`sn-metric sn-metric--${item.tone}`}>
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-coverage sn-section">
+      <div class="container">
+        <div class="sn-section-head sn-section-head--center">
+          <h2>Servicio en Toda Arequipa</h2>
+          <p>Instalaciones profesionales en todos los distritos</p>
+        </div>
+
+        <div class="sn-district-grid">
+          {districts.map((district) => (
+            <span class="sn-district-pill">{district}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-faq sn-section">
+      <div class="container sn-faq__container">
+        <div class="sn-section-head sn-section-head--center">
+          <h2>Preguntas Frecuentes</h2>
+        </div>
+
+        <div class="sn-faq__list">
+          {faqs.map((item) => (
+            <details class="sn-faq__item">
+              <summary>{item.question}</summary>
+              <div class="sn-faq__answer" set:html={item.answer}></div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sn-emergency">
+      <div class="container">
+        <div class="sn-emergency__box">
+          <h2>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Servicio de Emergencia 24/7
+          </h2>
+          <p>Atendemos emergencias en toda Arequipa y todos sus distritos</p>
+
+          <div class="sn-emergency__phones">
+            <a href={`tel:${PHONE_MAIN}`} class="sn-phone-pill">
+              <i class="fa-solid fa-phone"></i>
+              970 706 965
+            </a>
+            <a href={`tel:${PHONE_2}`} class="sn-phone-pill">
+              <i class="fa-solid fa-phone"></i>
+              988 970 791
+            </a>
+            <a href={`tel:${PHONE_3}`} class="sn-phone-pill">
+              <i class="fa-solid fa-phone"></i>
+              925 384 411
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</ManantialLayout>

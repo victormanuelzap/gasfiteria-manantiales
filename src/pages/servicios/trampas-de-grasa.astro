@@ -1,0 +1,655 @@
+---
+import ManantialLayout from "../../layouts/ManantialLayout.astro";
+
+const PHONE_MAIN = "970706965";
+const PHONE_2 = "988970791";
+const PHONE_3 = "925384411";
+const WHATSAPP = "51970706965";
+
+const heroImage = "/assets/servicios/gras-hero.webp";
+const benefitsImage = "/assets/servicios/gras-beneficios.webp";
+
+const waLink = (text: string) =>
+  `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+const audience = [
+  {
+    icon: "fa-solid fa-utensils",
+    title: "Restaurantes",
+    text: "Limpieza periódica para cumplir normativas sanitarias",
+  },
+  {
+    icon: "fa-solid fa-hotel",
+    title: "Hoteles",
+    text: "Mantenimiento preventivo de cocinas industriales",
+  },
+  {
+    icon: "fa-solid fa-plate-wheat",
+    title: "Comedores",
+    text: "Servicio para comedores escolares y empresariales",
+  },
+  {
+    icon: "fa-solid fa-building",
+    title: "Condominios",
+    text: "Limpieza de trampas de grasa en edificios",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    icon: "fa-solid fa-magnifying-glass",
+    title: "Inspección de la Trampa",
+    text: "Evaluamos el estado de la trampa de grasa y nivel de saturación",
+  },
+  {
+    number: "2",
+    icon: "fa-solid fa-oil-can",
+    title: "Extracción de Grasa",
+    text: "Removemos toda la grasa acumulada con equipos especializados",
+  },
+  {
+    number: "3",
+    icon: "fa-solid fa-pump-soap",
+    title: "Limpieza Profunda",
+    text: "Limpiamos completamente las paredes y filtros de la trampa",
+  },
+  {
+    number: "4",
+    icon: "fa-solid fa-certificate",
+    title: "Certificación",
+    text: "Entregamos certificado de limpieza para inspecciones sanitarias",
+  },
+];
+
+const results = [
+  {
+    title: "Trampa de Restaurante",
+    text: "Trampa saturada de grasa limpiada completamente",
+    image: "/assets/servicios/gras-resultado-1.webp",
+    alt: "Limpieza de trampa de grasa en restaurante en Arequipa",
+  },
+  {
+    title: "Cocina de Hotel",
+    text: "Sistema de trampa de grasa restaurado y funcionando",
+    image: "/assets/servicios/gras-resultado-2.webp",
+    alt: "Limpieza profesional de trampa de grasa en hotel",
+  },
+  {
+    title: "Comedor Industrial",
+    text: "Trampa de grasa limpiada según normas sanitarias",
+    image: "/assets/servicios/gras-resultado-3.webp",
+    alt: "Servicio de limpieza de trampa de grasa en comedor industrial",
+  },
+];
+
+const benefits = [
+  "Limpieza profunda y profesional",
+  "Prevención de obstrucciones en tuberías",
+  "Cumplimiento de normas sanitarias",
+  "Servicio programado o de emergencia",
+  "Personal capacitado y equipado",
+  "Certificado de limpieza incluido",
+];
+
+const compareRows = [
+  { label: "Certificado de limpieza oficial", manantial: true, other: false },
+  { label: "Cumplimiento normas sanitarias", manantial: true, other: false },
+  { label: "Servicio programado regular", manantial: true, other: false },
+  { label: "Equipos especializados", manantial: true, other: false },
+  { label: "Disposición adecuada de residuos", manantial: true, other: false },
+  { label: "Personal capacitado", manantial: true, other: true },
+  { label: "Atención 24/7 emergencias", manantial: true, other: false },
+];
+
+const plans = [
+  {
+    name: "Plan Mensual",
+    subtitle: "Ideal para restaurantes y cocinas industriales",
+    items: [
+      "Limpieza mensual programada",
+      "Certificado cada visita",
+      "Atención prioritaria",
+    ],
+    featured: false,
+  },
+  {
+    name: "Plan Trimestral",
+    subtitle: "Perfecto para hoteles y comedores",
+    items: [
+      "Limpieza cada 3 meses",
+      "Certificado incluido",
+      "Descuento especial",
+    ],
+    featured: true,
+    badge: "MÁS POPULAR",
+  },
+  {
+    name: "Plan Semestral",
+    subtitle: "Para condominios y pequeños negocios",
+    items: [
+      "Limpieza cada 6 meses",
+      "Certificado incluido",
+      "Precio económico",
+    ],
+    featured: false,
+  },
+];
+
+const testimonials = [
+  {
+    text: "Excelente servicio. Vienen puntualmente cada mes y me entregan el certificado para las inspecciones sanitarias. Muy recomendados.",
+    name: "Luis Fernández",
+    role: "Dueño de Restaurante",
+    place: "Cercado",
+    time: "Hace 5 días",
+  },
+  {
+    text: "Profesionales y responsables. La limpieza es impecable y nos ayudan a mantener todo en orden. Precio muy justo.",
+    name: "Carmen Vega",
+    role: "Administradora Hotel",
+    place: "Yanahuara",
+    time: "Hace 2 semanas",
+  },
+  {
+    text: "Contraté el servicio mensual y estoy muy satisfecho. Ya no tengo problemas de olores ni obstrucciones. 100% confiables.",
+    name: "Ricardo Molina",
+    role: "Comedor Empresarial",
+    place: "Paucarpata",
+    time: "Hace 1 mes",
+  },
+];
+
+const stats = [
+  { value: "4.9/5", label: "Calificación promedio", tone: "blue" },
+  { value: "500+", label: "Clientes satisfechos", tone: "green" },
+  { value: "100%", label: "Garantía en trabajos", tone: "violet" },
+  { value: "15+", label: "Años de experiencia", tone: "orange" },
+];
+
+const introStats = [
+  { value: "500+", label: "Negocios Atendidos", tone: "blue" },
+  { value: "100%", label: "Con Certificado", tone: "green" },
+  { value: "24/7", label: "Servicio Emergencia", tone: "violet" },
+  { value: "+15", label: "Años Experiencia", tone: "orange" },
+];
+
+const districts = [
+  "Cercado",
+  "Cayma",
+  "Yanahuara",
+  "Miraflores",
+  "Paucarpata",
+  "Mariano Melgar",
+  "Hunter",
+  "Socabaya",
+  "Sachaca",
+  "Alto Selva Alegre",
+  "Cerro Colorado",
+  "Jacobo Hunter",
+  "José Luis Bustamante",
+  "Characato",
+  "Tiabaya",
+  "Sabandia",
+];
+
+const faqs = [
+  {
+    question: "¿Cada cuánto tiempo debo limpiar la trampa de grasa?",
+    answer:
+      "La frecuencia depende del uso del negocio. En restaurantes y cocinas con alta producción suele recomendarse limpieza mensual o trimestral para evitar obstrucciones, malos olores y observaciones sanitarias.",
+  },
+  {
+    question: "¿El certificado es válido para inspecciones sanitarias?",
+    answer:
+      "Sí. Entregamos constancia de limpieza del servicio realizado, útil como respaldo de mantenimiento preventivo ante inspecciones internas y sanitarias del negocio.",
+  },
+  {
+    question: "¿Qué pasa si no limpio la trampa de grasa regularmente?",
+    answer:
+      "La grasa acumulada puede endurecerse, generar malos olores, provocar atoros en tuberías, rebalses y afectar el funcionamiento general del sistema de desagüe de tu cocina o negocio.",
+  },
+  {
+    question: "¿Cómo disponen de los residuos de grasa?",
+    answer:
+      "Realizamos el retiro de residuos de manera responsable, evitando que vuelvan al sistema de drenaje y cuidando el cumplimiento de buenas prácticas sanitarias durante el proceso.",
+  },
+  {
+    question: "¿Ofrecen descuentos por contratos anuales?",
+    answer:
+      "Sí. Los planes recurrentes y contratos programados pueden acceder a mejores condiciones, prioridad de atención y tarifas más convenientes según la frecuencia del servicio.",
+  },
+];
+---
+
+<ManantialLayout
+  title="Limpieza de Trampas de Grasa en Arequipa | Instalación y Servicios Manantial"
+  description="Servicio profesional de limpieza y mantenimiento de trampas de grasa en Arequipa para restaurantes, hoteles y negocios. Certificado incluido y atención 24/7."
+>
+  <style is:global>
+    @import "/css/gras.css";
+  </style>
+
+  <section class="gr-hero">
+    <picture class="gr-hero__bg">
+      <img
+        src={heroImage}
+        alt="Limpieza de trampas de grasa en Arequipa"
+        class="gr-hero__bg-img"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </picture>
+
+    <div class="gr-hero__overlay"></div>
+
+    <div class="container gr-hero__container">
+      <a href="/servicios" class="gr-back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        Volver a Servicios
+      </a>
+
+      <div class="gr-hero__content">
+        <h1 class="gr-hero__title">Limpieza de Trampas de Grasa en Arequipa</h1>
+        <p class="gr-hero__text">
+          Servicio profesional de limpieza y mantenimiento de trampas de grasa
+          para restaurantes, hoteles y negocios. Cumplimiento garantizado de
+          normas sanitarias.
+        </p>
+
+        <div class="gr-hero__actions">
+          <a
+            href={waLink("Hola, necesito una cotización para limpieza de trampas de grasa en Arequipa.")}
+            class="btn btn--green"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Solicitar Cotización
+          </a>
+
+          <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+            <i class="fa-solid fa-phone"></i>
+            Llamar Ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gr-highlight">
+    <div class="container gr-highlight__wrap">
+      <div class="gr-highlight__text">
+        <h2>
+          <span><i class="fa-solid fa-sparkles"></i></span>
+          Servicio Mensual con Certificado Sanitario Incluido
+        </h2>
+        <p>Trabajamos con garantía y repuestos de calidad</p>
+      </div>
+
+      <div class="gr-highlight__badges">
+        <div class="gr-mini-badge">
+          <i class="fa-regular fa-circle-check"></i>
+          <span>Garantía Total</span>
+        </div>
+        <div class="gr-mini-badge">
+          <i class="fa-regular fa-clock"></i>
+          <span>Servicio 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-intro">
+    <div class="container gr-intro__grid">
+      <div class="gr-intro__content">
+        <h2>Limpieza Profesional para Negocios en Arequipa</h2>
+        <p>
+          Las trampas de grasa requieren limpieza periódica para funcionar
+          correctamente y cumplir con las normas sanitarias. En
+          <strong>Instalación y Servicios Manantial</strong> ofrecemos servicio
+          profesional con certificación incluida.
+        </p>
+        <p>
+          Atendemos restaurantes, hoteles, comedores y condominios en toda
+          Arequipa. Ofrecemos planes de mantenimiento programado y servicio de
+          emergencia 24/7.
+        </p>
+
+        <div class="gr-certificate-box">
+          <h3>
+            <i class="fa-solid fa-check"></i>
+            Certificado Sanitario Incluido
+          </h3>
+          <p>
+            Entregamos certificado oficial de limpieza de trampas de grasa
+            válido para inspecciones de DIGESA y municipalidades.
+          </p>
+        </div>
+
+        <a
+          href={waLink("Hola, deseo solicitar un plan de mantenimiento para trampas de grasa.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Solicitar Plan de Mantenimiento
+        </a>
+      </div>
+
+      <div class="gr-stats">
+        {introStats.map((item) => (
+          <article class={`gr-stat-card gr-stat-card--${item.tone}`}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-audience">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>¿Para Quién es Este Servicio?</h2>
+        <p>Atendemos todo tipo de negocios y edificaciones en Arequipa</p>
+      </div>
+
+      <div class="gr-card-grid gr-card-grid--4">
+        {audience.map((item) => (
+          <article class="gr-info-card">
+            <div class="gr-info-card__icon">
+              <i class={item.icon}></i>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-steps">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Proceso de Limpieza Certificado</h2>
+        <p>4 pasos para garantizar el cumplimiento de normas sanitarias</p>
+      </div>
+
+      <div class="gr-card-grid gr-card-grid--4 gr-step-grid">
+        {steps.map((step) => (
+          <article class="gr-step-card">
+            <span class="gr-step-card__number">{step.number}</span>
+            <div class="gr-step-card__icon">
+              <i class={step.icon}></i>
+            </div>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-gallery">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Resultados Profesionales</h2>
+        <p>Vea la calidad de nuestro servicio de limpieza</p>
+      </div>
+
+      <div class="gr-gallery-grid">
+        {results.map((item) => (
+          <article class="gr-gallery-card">
+            <div class="gr-gallery-card__media">
+              <img src={item.image} alt={item.alt} loading="lazy" />
+              <span class="gr-chip gr-chip--before">ANTES</span>
+              <span class="gr-chip gr-chip--after">DESPUÉS</span>
+            </div>
+            <div class="gr-gallery-card__body">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-benefits">
+    <div class="container gr-benefits__grid">
+      <div class="gr-benefits__image">
+        <img
+          src={benefitsImage}
+          alt="Beneficios del servicio de limpieza de trampas de grasa"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="gr-benefits__content">
+        <h2>Beneficios de Nuestro Servicio</h2>
+
+        <ul class="gr-check-list">
+          {benefits.map((item) => (
+            <li>
+              <i class="fa-regular fa-circle-check"></i>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="gr-note-box">
+          <strong>¿Sabías que?</strong>
+          <p>
+            La limpieza regular de trampas de grasa previene multas sanitarias y
+            prolonga la vida útil de todo tu sistema de desagüe.
+          </p>
+        </div>
+
+        <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+          <i class="fa-solid fa-phone"></i>
+          Llamar: 970 706 965
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-compare">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>¿Por qué Elegir Nuestro Servicio?</h2>
+        <p>Compare nuestro servicio profesional certificado con otros</p>
+      </div>
+
+      <div class="gr-compare__table-wrap">
+        <table class="gr-compare__table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Manantial<br />Profesionales</th>
+              <th>Otros<br />Competencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr>
+                <td>{row.label}</td>
+                <td>
+                  <span class={row.manantial ? "gr-result gr-result--ok" : "gr-result gr-result--no"}>
+                    <i class={row.manantial ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.manantial ? "Sí" : "No"}
+                  </span>
+                </td>
+                <td>
+                  <span class={row.other ? "gr-result gr-result--ok" : "gr-result gr-result--no"}>
+                    <i class={row.other ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.other ? "Sí" : "No"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gr-center-btn">
+        <a
+          href={waLink("Hola, deseo contratar el servicio profesional de limpieza de trampas de grasa.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Contratar Servicio Profesional
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-plans">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Planes de Mantenimiento</h2>
+        <p>Elige la frecuencia que mejor se adapte a tu negocio</p>
+      </div>
+
+      <div class="gr-card-grid gr-card-grid--3">
+        {plans.map((plan) => (
+          <article class={`gr-plan-card ${plan.featured ? "gr-plan-card--featured" : ""}`}>
+            {plan.badge && <span class="gr-plan-card__badge">{plan.badge}</span>}
+            <h3>{plan.name}</h3>
+            <p class="gr-plan-card__subtitle">{plan.subtitle}</p>
+
+            <ul class="gr-plan-card__list">
+              {plan.items.map((item) => (
+                <li>
+                  <i class="fa-regular fa-circle-check"></i>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <div class="gr-center-btn">
+        <a
+          href={waLink("Hola, quiero información sobre los planes de mantenimiento para trampas de grasa.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Solicitar Información de Planes
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-testimonials">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Lo que Dicen Nuestros Clientes</h2>
+        <p>Testimonios de negocios que confían en nuestro servicio</p>
+      </div>
+
+      <div class="gr-testimonial-grid">
+        {testimonials.map((item) => (
+          <article class="gr-testimonial-card">
+            <div class="gr-testimonial-card__top">
+              <span class="gr-testimonial-card__quote">
+                <i class="fa-solid fa-quote-left"></i>
+              </span>
+              <div class="gr-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+            <p class="gr-testimonial-card__text">“{item.text}”</p>
+
+            <div class="gr-testimonial-card__meta">
+              <strong>{item.name}</strong>
+              <span>{item.role}, {item.place}</span>
+              <small>{item.time}</small>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="gr-metrics">
+        {stats.map((item) => (
+          <article class={`gr-metric gr-metric--${item.tone}`}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-coverage">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Servicio en Toda Arequipa</h2>
+        <p>Atendemos todos los distritos con planes de mantenimiento programado</p>
+      </div>
+
+      <div class="gr-district-grid">
+        {districts.map((district) => (
+          <span class="gr-district-pill">{district}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gr-faq">
+    <div class="container gr-faq__container">
+      <div class="section-head section-head--center">
+        <h2>Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="gr-faq__list">
+        {faqs.map((item) => (
+          <details class="gr-faq__item">
+            <summary>{item.question}</summary>
+            <div class="gr-faq__answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="gr-emergency">
+    <div class="container">
+      <div class="gr-emergency__box">
+        <h2>
+          <i class="fa-solid fa-sink"></i>
+          Servicio de Emergencia 24/7
+        </h2>
+        <p>Atendemos emergencias en toda Arequipa y todos sus distritos</p>
+
+        <div class="gr-emergency__phones">
+          <a href={`tel:${PHONE_MAIN}`} class="gr-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            970 706 965
+          </a>
+          <a href={`tel:${PHONE_2}`} class="gr-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            988 970 791
+          </a>
+          <a href={`tel:${PHONE_3}`} class="gr-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            925 384 411
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</ManantialLayout>
