@@ -1,0 +1,658 @@
+---
+import ManantialLayout from "../../layouts/ManantialLayout.astro";
+
+const PHONE_MAIN = "970706965";
+const PHONE_2 = "988970791";
+const PHONE_3 = "925384411";
+const WHATSAPP = "51970706965";
+
+const heroImage = "/assets/servicios/gasfiteria-general-hero.webp";
+const benefitsImage = "/assets/servicios/gasfiteria-general-beneficios.webp";
+
+const waLink = (text: string) =>
+  `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+const services = [
+  {
+    icon: "fa-solid fa-wrench",
+    title: "Reparaciones Generales",
+    text: "Arreglo de grifos, llaves, válvulas y accesorios sanitarios",
+  },
+  {
+    icon: "fa-solid fa-arrow-right-arrow-left",
+    title: "Cambio de Tuberías",
+    text: "Reemplazo de tuberías de agua y desagüe en mal estado",
+  },
+  {
+    icon: "fa-regular fa-clock",
+    title: "Emergencias 24/7",
+    text: "Atención inmediata para problemas urgentes de gasfitería",
+  },
+  {
+    icon: "fa-regular fa-shield",
+    title: "Mantenimiento Preventivo",
+    text: "Revisión y mantenimiento para evitar problemas futuros",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    icon: "fa-solid fa-phone",
+    title: "Llamada o WhatsApp",
+    text: "Nos contacta y describe el problema que tiene",
+  },
+  {
+    number: "2",
+    icon: "fa-solid fa-magnifying-glass",
+    title: "Evaluación en Sitio",
+    text: "Visitamos su domicilio para evaluar el problema",
+  },
+  {
+    number: "3",
+    icon: "fa-solid fa-screwdriver-wrench",
+    title: "Reparación Inmediata",
+    text: "Realizamos la reparación con herramientas y repuestos profesionales",
+  },
+  {
+    number: "4",
+    icon: "fa-regular fa-file-lines",
+    title: "Verificación y Garantía",
+    text: "Probamos que todo funcione correctamente y damos garantía",
+  },
+];
+
+const works = [
+  {
+    title: "Reparación de Grifo",
+    text: "Grifo antiguo reparado y funcionando perfectamente",
+    beforeImage: "/assets/servicios/gasfiteria-grifo-antes.webp",
+    afterImage: "/assets/servicios/gasfiteria-grifo-despues.webp",
+    beforeAlt: "Antes de reparación de grifo en Arequipa",
+    afterAlt: "Después de reparación de grifo en Arequipa",
+  },
+  {
+    title: "Cambio de Tuberías",
+    text: "Tuberías viejas reemplazadas por nuevas de PVC",
+    beforeImage: "/assets/servicios/gasfiteria-tuberias-antes.webp",
+    afterImage: "/assets/servicios/gasfiteria-tuberias-despues.webp",
+    beforeAlt: "Antes de cambio de tuberías",
+    afterAlt: "Después de cambio de tuberías en Arequipa",
+  },
+  {
+    title: "Instalación Completa",
+    text: "Sistema de agua renovado completamente",
+    beforeImage: "/assets/servicios/gasfiteria-instalacion-antes.webp",
+    afterImage: "/assets/servicios/gasfiteria-instalacion-despues.webp",
+    beforeAlt: "Antes de instalación sanitaria completa",
+    afterAlt: "Después de instalación sanitaria completa",
+  },
+];
+
+const benefits = [
+  "Gasfiteros profesionales certificados",
+  "Servicio 24/7 para emergencias",
+  "Garantía en todos los trabajos",
+  "Respuesta rápida en toda Arequipa",
+  "Presupuestos sin compromiso",
+  "Atención personalizada",
+];
+
+const compareRows = [
+  { label: "Disponibilidad 24/7 emergencias", manantial: true, other: false },
+  { label: "Gasfiteros certificados", manantial: true, other: false },
+  { label: "Garantía por escrito", manantial: true, other: false },
+  { label: "Respuesta en menos de 1 hora", manantial: true, other: false },
+  { label: "Herramientas profesionales", manantial: true, other: true },
+  { label: "Repuestos de calidad", manantial: true, other: false },
+  { label: "Presupuesto transparente", manantial: true, other: false },
+];
+
+const problemGroups = [
+  {
+    title: "Emergencias Comunes",
+    items: [
+      "Caños rotos con fuga de agua",
+      "Inodoros tapados urgentes",
+      "Tuberías reventadas",
+      "Grifos que no cierran",
+      "Fugas en tanques de agua",
+    ],
+  },
+  {
+    title: "Reparaciones Frecuentes",
+    items: [
+      "Cambio de empaques",
+      "Reparación de grifería",
+      "Arreglo de válvulas",
+      "Cambio de sifones",
+      "Reparación de duchas",
+    ],
+  },
+  {
+    title: "Trabajos Mayores",
+    items: [
+      "Cambio de tuberías completo",
+      "Instalación de termas",
+      "Remodelación de baños",
+      "Sistemas de agua nueva",
+      "Instalación de bombas",
+    ],
+  },
+];
+
+const testimonials = [
+  {
+    text: "Tuve una emergencia un domingo por la noche y llegaron en 40 minutos. Solucionaron todo rápido y bien. Excelente servicio!",
+    name: "José Pinto",
+    place: "Paucarpata, Arequipa",
+    time: "Hace 3 días",
+  },
+  {
+    text: "Muy profesionales y honestos. Me explicaron todo el problema y el precio fue justo. Los recomiendo 100%.",
+    name: "Martha Chávez",
+    place: "Miraflores, Arequipa",
+    time: "Hace 1 semana",
+  },
+  {
+    text: "Cambiaron todas las tuberías de mi casa. Trabajo impecable, rápido y con garantía. Muy contentos con el resultado.",
+    name: "Alberto Ramos",
+    place: "Cercado, Arequipa",
+    time: "Hace 2 semanas",
+  },
+];
+
+const stats = [
+  { value: "4.9/5", label: "Calificación promedio", tone: "blue" },
+  { value: "500+", label: "Clientes satisfechos", tone: "green" },
+  { value: "100%", label: "Garantía en trabajos", tone: "violet" },
+  { value: "15+", label: "Años de experiencia", tone: "orange" },
+];
+
+const districts = [
+  "Cercado",
+  "Cayma",
+  "Yanahuara",
+  "Miraflores",
+  "Paucarpata",
+  "Mariano Melgar",
+  "Hunter",
+  "Socabaya",
+  "Sachaca",
+  "Alto Selva Alegre",
+  "Cerro Colorado",
+  "Jacobo Hunter",
+  "José Luis Bustamante",
+  "Characato",
+  "Tiabaya",
+  "Sabandia",
+];
+
+const faqs = [
+  {
+    question: "¿Atienden emergencias de noche y fines de semana?",
+    answer: [
+      "Sí. Atendemos emergencias de gasfitería las 24 horas, incluyendo noches, madrugadas, domingos y feriados.",
+      "Estamos disponibles en toda Arequipa para casos urgentes en viviendas y negocios.",
+    ],
+  },
+  {
+    question: "¿Cuánto tiempo tardan en llegar en una emergencia?",
+    answer: [
+      "El tiempo depende del distrito y del nivel de urgencia, pero normalmente buscamos llegar en menos de 1 hora dentro de Arequipa.",
+      "Al llamarnos le damos una referencia real del tiempo de llegada.",
+    ],
+  },
+  {
+    question: "¿Cobran por la evaluación o presupuesto?",
+    answer: [
+      "En muchos casos brindamos presupuesto sin compromiso. Cuando el caso requiere revisión técnica más compleja, primero se le informa claramente cualquier costo.",
+      "Siempre trabajamos con presupuesto transparente.",
+    ],
+  },
+  {
+    question: "¿Qué formas de pago aceptan?",
+    answer: [
+      "Aceptamos efectivo, transferencia y otros medios de pago coordinados previamente.",
+      "Antes de iniciar el trabajo le explicamos el costo y la forma de pago para que todo quede claro.",
+    ],
+  },
+  {
+    question: "¿Dan garantía por las reparaciones?",
+    answer: [
+      "Sí. Nuestros trabajos incluyen garantía porque usamos herramientas adecuadas y repuestos de calidad.",
+      "La garantía depende del tipo de reparación o instalación realizada.",
+    ],
+  },
+];
+---
+
+<ManantialLayout
+  title="Gasfitería en Arequipa | Gasfitería General 24/7 | Instalación y Servicios Manantial"
+  description="Gasfitería en Arequipa para reparaciones, instalaciones y emergencias 24/7. Gasfiteros profesionales con garantía, atención rápida y servicio en todos los distritos."
+>
+  <style is:global>
+    @import "/css/gasfiteria.css";
+  </style>
+
+  <section class="gg-hero">
+    <picture class="gg-hero__bg">
+      <img
+        src={heroImage}
+        alt="Gasfitería general en Arequipa"
+        class="gg-hero__bg-img"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </picture>
+
+    <div class="gg-hero__overlay"></div>
+
+    <div class="container gg-hero__container">
+      <a href="/servicios" class="gg-back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        Volver a Servicios
+      </a>
+
+      <div class="gg-hero__content">
+        <h1 class="gg-hero__title">Gasfitería General en Arequipa</h1>
+        <p class="gg-hero__text">
+          Servicio completo de gasfitería para todo tipo de reparaciones,
+          instalaciones y emergencias. Atención 24/7 en toda Arequipa.
+        </p>
+
+        <div class="gg-hero__actions">
+          <a
+            href={waLink("Hola, necesito una cotización de gasfitería en Arequipa.")}
+            class="btn btn--green"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Solicitar Cotización
+          </a>
+
+          <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+            <i class="fa-solid fa-phone"></i>
+            Llamar Ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gg-highlight">
+    <div class="container gg-highlight__wrap">
+      <div class="gg-highlight__text">
+        <h2>
+          <span>🚨</span>
+          Gasfiteros Disponibles 24/7 - Atención Inmediata en Emergencias
+        </h2>
+        <p>Trabajamos con garantía y repuestos de calidad</p>
+      </div>
+
+      <div class="gg-highlight__badges">
+        <div class="gg-mini-badge">
+          <i class="fa-regular fa-circle-check"></i>
+          <span>Garantía Total</span>
+        </div>
+        <div class="gg-mini-badge">
+          <i class="fa-regular fa-clock"></i>
+          <span>Servicio 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-intro">
+    <div class="container gg-intro__grid">
+      <div class="gg-intro__content">
+        <h2>Su Gasfitero de Confianza en Arequipa</h2>
+        <p>
+          ¿Tiene un problema de gasfitería? En
+          <strong> Instalación y Servicios Manantial</strong> contamos con
+          gasfiteros profesionales listos para atender cualquier emergencia o
+          trabajo de gasfitería en su hogar o negocio.
+        </p>
+        <p>
+          Desde una simple reparación de grifo hasta cambio completo de
+          tuberías, estamos disponibles 24/7 en toda Arequipa. Respuesta
+          rápida, trabajo garantizado y precios justos.
+        </p>
+
+        <div class="gg-intro__actions">
+          <a
+            href={waLink("Hola, tengo una emergencia de gasfitería en Arequipa.")}
+            class="btn btn--green"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp Emergencia
+          </a>
+
+          <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+            <i class="fa-solid fa-phone"></i>
+            Llamar Ahora
+          </a>
+        </div>
+      </div>
+
+      <div class="gg-stats">
+        <article class="gg-stat-card gg-stat-card--red">
+          <strong>24/7</strong>
+          <span>Servicio Emergencia</span>
+        </article>
+        <article class="gg-stat-card gg-stat-card--green">
+          <strong>&lt;1hr</strong>
+          <span>Tiempo Respuesta</span>
+        </article>
+        <article class="gg-stat-card gg-stat-card--blue">
+          <strong>100%</strong>
+          <span>Con Garantía</span>
+        </article>
+        <article class="gg-stat-card gg-stat-card--orange">
+          <strong>+15</strong>
+          <span>Años Experiencia</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-services">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Servicios de Gasfitería</h2>
+        <p>Soluciones completas para todo tipo de problemas de gasfitería</p>
+      </div>
+
+      <div class="gg-card-grid gg-card-grid--4">
+        {services.map((item) => (
+          <article class="gg-service-card">
+            <div class="gg-service-card__icon">
+              <i class={item.icon}></i>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-steps">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>¿Cómo Trabajamos?</h2>
+        <p>Proceso simple y rápido para resolver sus problemas de gasfitería</p>
+      </div>
+
+      <div class="gg-card-grid gg-card-grid--4 gg-step-grid">
+        {steps.map((step) => (
+          <article class="gg-step-card">
+            <span class="gg-step-card__number">{step.number}</span>
+            <div class="gg-step-card__icon">
+              <i class={step.icon}></i>
+            </div>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-gallery">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Trabajos Realizados</h2>
+        <p>Vea algunos de nuestros trabajos de gasfitería</p>
+      </div>
+
+      <div class="gg-gallery-grid">
+        {works.map((work) => (
+          <article class="gg-gallery-card">
+            <div class="gg-gallery-card__compare">
+              <div class="gg-gallery-card__img-wrap">
+                <img src={work.beforeImage} alt={work.beforeAlt} loading="lazy" />
+                <span class="gg-chip gg-chip--before">ANTES</span>
+              </div>
+              <div class="gg-gallery-card__img-wrap">
+                <img src={work.afterImage} alt={work.afterAlt} loading="lazy" />
+                <span class="gg-chip gg-chip--after">DESPUÉS</span>
+              </div>
+            </div>
+
+            <div class="gg-gallery-card__body">
+              <h3>{work.title}</h3>
+              <p>{work.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-benefits">
+    <div class="container gg-benefits__grid">
+      <div class="gg-benefits__image">
+        <img
+          src={benefitsImage}
+          alt="Gasfitero profesional trabajando"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="gg-benefits__content">
+        <h2>¿Por Qué Elegirnos?</h2>
+
+        <ul class="gg-check-list">
+          {benefits.map((item) => (
+            <li>
+              <i class="fa-regular fa-circle-check"></i>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="gg-note">
+          <strong>🚨 Emergencias:</strong> Atendemos emergencias 24/7 en menos
+          de 1 hora. No importa si es día festivo, fin de semana o madrugada.
+          ¡Llámenos!
+        </div>
+
+        <div class="gg-benefits__phones">
+          <a href={`tel:${PHONE_MAIN}`} class="gg-red-btn">
+            <i class="fa-solid fa-phone"></i>
+            970 706 965
+          </a>
+          <a href={`tel:${PHONE_2}`} class="gg-red-btn">
+            <i class="fa-solid fa-phone"></i>
+            988 970 791
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-compare">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Servicio Profesional vs Informal</h2>
+        <p>Compare y descubra por qué somos su mejor opción</p>
+      </div>
+
+      <div class="gg-compare__table-wrap">
+        <table class="gg-compare__table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Manantial<br />Profesionales</th>
+              <th>Otros<br />Competencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr>
+                <td>{row.label}</td>
+                <td>
+                  <span class={row.manantial ? "gg-result gg-result--ok" : "gg-result gg-result--no"}>
+                    <i class={row.manantial ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.manantial ? "Sí" : "No"}
+                  </span>
+                </td>
+                <td>
+                  <span class={row.other ? "gg-result gg-result--ok" : "gg-result gg-result--no"}>
+                    <i class={row.other ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.other ? "Sí" : "No"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gg-center-btn">
+        <a
+          href={waLink("Hola, deseo contratar el servicio profesional de gasfitería en Arequipa.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Contratar Servicio Profesional
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-problems">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Problemas que Resolvemos</h2>
+      </div>
+
+      <div class="gg-problem-grid">
+        {problemGroups.map((group) => (
+          <article class="gg-problem-card">
+            <h3>{group.title}</h3>
+            <ul>
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-testimonials">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Lo que Dicen Nuestros Clientes</h2>
+        <p>Testimonios reales de clientes satisfechos</p>
+      </div>
+
+      <div class="gg-testimonial-grid">
+        {testimonials.map((item) => (
+          <article class="gg-testimonial-card">
+            <div class="gg-testimonial-card__top">
+              <span class="gg-testimonial-card__quote">
+                <i class="fa-solid fa-quote-left"></i>
+              </span>
+              <div class="gg-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+            <p class="gg-testimonial-card__text">“{item.text}”</p>
+
+            <div class="gg-testimonial-card__meta">
+              <strong>{item.name}</strong>
+              <span>{item.place}</span>
+              <small>{item.time}</small>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="gg-metrics">
+        {stats.map((item) => (
+          <article class={`gg-metric gg-metric--${item.tone}`}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-coverage">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Cobertura en Toda Arequipa</h2>
+        <p>Gasfiteros disponibles 24/7 en todos los distritos</p>
+      </div>
+
+      <div class="gg-district-grid">
+        {districts.map((district) => (
+          <span class="gg-district-pill">{district}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section gg-faq">
+    <div class="container gg-faq__container">
+      <div class="section-head section-head--center">
+        <h2>Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="gg-faq__list">
+        {faqs.map((item) => (
+          <details class="gg-faq__item">
+            <summary>{item.question}</summary>
+            <div class="gg-faq__answer">
+              {item.answer.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="gg-emergency">
+    <div class="container">
+      <div class="gg-emergency__box">
+        <h2>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          Servicio de Emergencia 24/7
+        </h2>
+        <p>Atendemos emergencias en toda Arequipa y todos sus distritos</p>
+
+        <div class="gg-emergency__phones">
+          <a href={`tel:${PHONE_MAIN}`} class="gg-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            970 706 965
+          </a>
+          <a href={`tel:${PHONE_2}`} class="gg-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            988 970 791
+          </a>
+          <a href={`tel:${PHONE_3}`} class="gg-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            925 384 411
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</ManantialLayout>

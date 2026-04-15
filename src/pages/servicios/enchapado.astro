@@ -1,0 +1,585 @@
+---
+import ManantialLayout from "../../layouts/ManantialLayout.astro";
+
+const PHONE_MAIN = "970706965";
+const PHONE_2 = "988970791";
+const PHONE_3 = "925384411";
+const WHATSAPP = "51970706965";
+
+const heroImage = "/assets/servicios/enchapado-hero.webp";
+const benefitsImage = "/assets/servicios/enchapado-beneficios.webp";
+
+const waLink = (text: string) =>
+  `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+const materials = [
+  {
+    icon: "fa-solid fa-border-all",
+    title: "Mayólica",
+    text: "Instalación de mayólica para paredes de baños y cocinas",
+  },
+  {
+    icon: "fa-solid fa-table-cells-large",
+    title: "Porcelanato",
+    text: "Colocación de porcelanato en pisos y paredes",
+  },
+  {
+    icon: "fa-solid fa-shapes",
+    title: "Cerámicos",
+    text: "Instalación de cerámicos para interiores y exteriores",
+  },
+  {
+    icon: "fa-regular fa-gem",
+    title: "Piedra Natural",
+    text: "Enchapado con mármol, granito y piedras decorativas",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    icon: "fa-solid fa-ruler-combined",
+    title: "Medición y Presupuesto",
+    text: "Medimos el área, calculamos materiales y presupuestamos el trabajo",
+  },
+  {
+    number: "2",
+    icon: "fa-solid fa-screwdriver-wrench",
+    title: "Preparación de Superficie",
+    text: "Nivelamos y preparamos la superficie para garantizar adherencia perfecta",
+  },
+  {
+    number: "3",
+    icon: "fa-solid fa-crosshairs",
+    title: "Instalación Precisa",
+    text: "Instalamos con nivel láser y espaciadores para acabado perfecto",
+  },
+  {
+    number: "4",
+    icon: "fa-solid fa-brush",
+    title: "Fragüe y Acabado",
+    text: "Aplicamos fragüe profesional y realizamos limpieza final",
+  },
+];
+
+const works = [
+  {
+    title: "Baño Completo",
+    text: "Enchapado completo de baño con porcelanato",
+    beforeImage: "/assets/servicios/enchapado-bano-antes.webp",
+    afterImage: "/assets/servicios/enchapado-bano-despues.webp",
+    beforeAlt: "Antes de enchapado de baño en Arequipa",
+    afterAlt: "Después de enchapado de baño con porcelanato en Arequipa",
+  },
+  {
+    title: "Piso de Sala",
+    text: "Instalación de cerámico en sala y comedor",
+    beforeImage: "/assets/servicios/enchapado-sala-antes.webp",
+    afterImage: "/assets/servicios/enchapado-sala-despues.webp",
+    beforeAlt: "Antes de instalación de piso cerámico",
+    afterAlt: "Después de instalación de piso cerámico en sala",
+  },
+  {
+    title: "Cocina Moderna",
+    text: "Mayólica y porcelanato en cocina completa",
+    beforeImage: "/assets/servicios/enchapado-cocina-antes.webp",
+    afterImage: "/assets/servicios/enchapado-cocina-despues.webp",
+    beforeAlt: "Antes de remodelación y enchapado de cocina",
+    afterAlt: "Después de enchapado de cocina con mayólica y porcelanato",
+  },
+];
+
+const benefits = [
+  "Instalación con nivelación perfecta",
+  "Acabados de alta calidad",
+  "Experiencia en todo tipo de materiales",
+  "Fragüe profesional y resistente",
+  "Asesoría en diseño y distribución",
+  "Presupuestos detallados sin compromiso",
+];
+
+const compareRows = [
+  { label: "Uso de nivel láser profesional", manantial: true, other: false },
+  { label: "Fragüe premium anti-hongos", manantial: true, other: false },
+  { label: "Garantía por escrito", manantial: true, other: false },
+  { label: "Cortes precisos sin desperdicios", manantial: true, other: false },
+  { label: "Limpieza final incluida", manantial: true, other: true },
+  { label: "Asesoría en diseño", manantial: true, other: false },
+  { label: "Experiencia +15 años", manantial: true, other: false },
+];
+
+const testimonials = [
+  {
+    text: "Enchaparon todo mi baño con porcelanato. El trabajo quedó perfecto, sin una sola falla. Muy profesionales y limpios.",
+    name: "Raúl Medina",
+    place: "Yanahuara, Arequipa",
+    time: "Hace 1 semana",
+  },
+  {
+    text: "Instalaron cerámico en toda mi casa. El acabado es espectacular, todo quedó nivelado y parejo. 100% recomendados.",
+    name: "Elena Vargas",
+    place: "Cercado, Arequipa",
+    time: "Hace 2 semanas",
+  },
+  {
+    text: "Me ayudaron a elegir el porcelanato perfecto y lo instalaron impecable. Precio justo y trabajo de primera.",
+    name: "Miguel Quispe",
+    place: "Cayma, Arequipa",
+    time: "Hace 1 mes",
+  },
+];
+
+const stats = [
+  { value: "4.9/5", label: "Calificación promedio", tone: "blue" },
+  { value: "500+", label: "Clientes satisfechos", tone: "green" },
+  { value: "100%", label: "Garantía en trabajos", tone: "violet" },
+  { value: "15+", label: "Años de experiencia", tone: "orange" },
+];
+
+const districts = [
+  "Cercado",
+  "Cayma",
+  "Yanahuara",
+  "Miraflores",
+  "Paucarpata",
+  "Mariano Melgar",
+  "Hunter",
+  "Socabaya",
+  "Sachaca",
+  "Alto Selva Alegre",
+  "Cerro Colorado",
+  "Jacobo Hunter",
+  "José Luis Bustamante",
+  "Characato",
+  "Tiabaya",
+  "Sabandia",
+];
+
+const faqs = [
+  {
+    question: "¿Cuánto cuesta enchapado por metro cuadrado?",
+    answer: [
+      "El precio depende del tipo de material, el formato de las piezas, el estado de la superficie y si el trabajo incluye cortes especiales, fragüe o nivelación adicional.",
+      "Le brindamos un presupuesto detallado y sin compromiso luego de evaluar el área en Arequipa.",
+    ],
+  },
+  {
+    question: "¿Cuánto tiempo toma enchapar un baño completo?",
+    answer: [
+      "En promedio, un baño completo puede tomar entre 2 y 5 días, según el tamaño, el tipo de porcelanato o mayólica y las condiciones previas del área.",
+      "Siempre le indicamos un plazo estimado antes de iniciar el trabajo.",
+    ],
+  },
+  {
+    question: "¿Incluyen los materiales en el precio?",
+    answer: [
+      "Podemos trabajar solo con mano de obra o entregar una cotización completa con materiales, pegamento, fragüe y accesorios.",
+      "Nos adaptamos a lo que usted necesite y a su presupuesto.",
+    ],
+  },
+  {
+    question: "¿Dan garantía por el trabajo?",
+    answer: [
+      "Sí. Realizamos trabajos con garantía porque usamos procedimientos correctos, nivelación profesional y materiales de calidad.",
+      "Nuestro objetivo es que el acabado quede firme, alineado y duradero.",
+    ],
+  },
+];
+---
+
+<ManantialLayout
+  title="Enchapado de Mayólica en Arequipa | Porcelanato y Cerámicos | Instalación y Servicios Manantial"
+  description="Enchapado de mayólica en Arequipa con instalación profesional de porcelanato, cerámicos y piedra natural. Acabados perfectos con garantía para baños, cocinas, pisos y paredes."
+>
+  <style is:global>
+    @import "/css/enchapado.css";
+  </style>
+
+  <section class="enp-hero">
+    <picture class="enp-hero__bg">
+      <img
+        src={heroImage}
+        alt="Enchapado de mayólica y porcelanato en Arequipa"
+        class="enp-hero__bg-img"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </picture>
+
+    <div class="enp-hero__overlay"></div>
+
+    <div class="container enp-hero__container">
+      <a href="/servicios" class="enp-back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        Volver a Servicios
+      </a>
+
+      <div class="enp-hero__content">
+        <h1 class="enp-hero__title">Enchapado de Mayólica y Porcelanato en Arequipa</h1>
+        <p class="enp-hero__text">
+          Instalación profesional de mayólica, porcelanato, cerámicos y piedra
+          natural. Acabados perfectos con garantía para su hogar o negocio.
+        </p>
+
+        <div class="enp-hero__actions">
+          <a
+            href={waLink("Hola, necesito una cotización para enchapado de mayólica en Arequipa.")}
+            class="btn btn--green"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            Solicitar Cotización
+          </a>
+
+          <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+            <i class="fa-solid fa-phone"></i>
+            Llamar Ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="enp-highlight">
+    <div class="container enp-highlight__wrap">
+      <div class="enp-highlight__text">
+        <h2>
+          <span>✨</span>
+          Instalación Profesional con Nivel Láser - Acabados Perfectos
+        </h2>
+        <p>Trabajamos con garantía y repuestos de calidad</p>
+      </div>
+
+      <div class="enp-highlight__badges">
+        <div class="enp-mini-badge">
+          <i class="fa-regular fa-circle-check"></i>
+          <span>Garantía Total</span>
+        </div>
+        <div class="enp-mini-badge">
+          <i class="fa-regular fa-clock"></i>
+          <span>Servicio 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-intro">
+    <div class="container enp-intro__grid">
+      <div class="enp-intro__content">
+        <h2>Enchapado Profesional de Mayólica en Arequipa</h2>
+        <p>
+          El enchapado requiere precisión y experiencia para lograr acabados
+          perfectos. En <strong>Instalación y Servicios Manantial</strong>
+          contamos con maestros especializados en instalación de mayólica,
+          porcelanato y todo tipo de revestimientos.
+        </p>
+        <p>
+          Trabajamos en baños, cocinas, salas, exteriores y fachadas. Le
+          asesoramos en la elección del material ideal y le brindamos
+          presupuestos detallados sin compromiso.
+        </p>
+
+        <a
+          href={waLink("Hola, quiero solicitar un presupuesto para enchapado de mayólica en Arequipa.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Solicitar Presupuesto
+        </a>
+      </div>
+
+      <div class="enp-stats">
+        <article class="enp-stat-card enp-stat-card--blue">
+          <strong>500+</strong>
+          <span>m² Instalados</span>
+        </article>
+        <article class="enp-stat-card enp-stat-card--green">
+          <strong>100%</strong>
+          <span>Con Garantía</span>
+        </article>
+        <article class="enp-stat-card enp-stat-card--violet">
+          <strong>300+</strong>
+          <span>Proyectos</span>
+        </article>
+        <article class="enp-stat-card enp-stat-card--orange">
+          <strong>+15</strong>
+          <span>Años Experiencia</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-materials">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Materiales que Instalamos</h2>
+        <p>Especialistas en todo tipo de revestimientos</p>
+      </div>
+
+      <div class="enp-card-grid enp-card-grid--4">
+        {materials.map((item) => (
+          <article class="enp-material-card">
+            <div class="enp-material-card__icon">
+              <i class={item.icon}></i>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-steps">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Proceso de Instalación</h2>
+        <p>4 etapas para un enchapado perfecto y duradero</p>
+      </div>
+
+      <div class="enp-card-grid enp-card-grid--4 enp-step-grid">
+        {steps.map((step) => (
+          <article class="enp-step-card">
+            <span class="enp-step-card__number">{step.number}</span>
+            <div class="enp-step-card__icon">
+              <i class={step.icon}></i>
+            </div>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-gallery">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Proyectos Realizados</h2>
+        <p>Vea la calidad de nuestros acabados profesionales</p>
+      </div>
+
+      <div class="enp-gallery-grid">
+        {works.map((work) => (
+          <article class="enp-gallery-card">
+            <div class="enp-gallery-card__compare">
+              <div class="enp-gallery-card__img-wrap">
+                <img src={work.beforeImage} alt={work.beforeAlt} loading="lazy" />
+                <span class="enp-chip enp-chip--before">ANTES</span>
+              </div>
+              <div class="enp-gallery-card__img-wrap">
+                <img src={work.afterImage} alt={work.afterAlt} loading="lazy" />
+                <span class="enp-chip enp-chip--after">DESPUÉS</span>
+              </div>
+            </div>
+
+            <div class="enp-gallery-card__body">
+              <h3>{work.title}</h3>
+              <p>{work.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-benefits">
+    <div class="container enp-benefits__grid">
+      <div class="enp-benefits__image">
+        <img
+          src={benefitsImage}
+          alt="Enchapado profesional de baño en Arequipa"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="enp-benefits__content">
+        <h2>Beneficios de Nuestro Servicio</h2>
+
+        <ul class="enp-check-list">
+          {benefits.map((item) => (
+            <li>
+              <i class="fa-regular fa-circle-check"></i>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="enp-note">
+          <strong>Dato importante:</strong> Usamos nivel láser y espaciadores
+          profesionales para garantizar que cada baldosa quede perfectamente
+          alineada y nivelada.
+        </div>
+
+        <a href={`tel:${PHONE_MAIN}`} class="btn btn--blue">
+          <i class="fa-solid fa-phone"></i>
+          Llamar: 970 706 965
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-compare">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>¿Por qué elegir nuestro servicio?</h2>
+        <p>Calidad profesional en cada proyecto</p>
+      </div>
+
+      <div class="enp-compare__table-wrap">
+        <table class="enp-compare__table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Manantial<br />Profesionales</th>
+              <th>Otros<br />Competencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr>
+                <td>{row.label}</td>
+                <td>
+                  <span class={row.manantial ? "enp-result enp-result--ok" : "enp-result enp-result--no"}>
+                    <i class={row.manantial ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.manantial ? "Sí" : "No"}
+                  </span>
+                </td>
+                <td>
+                  <span class={row.other ? "enp-result enp-result--ok" : "enp-result enp-result--no"}>
+                    <i class={row.other ? "fa-solid fa-check" : "fa-solid fa-xmark"}></i>
+                    {row.other ? "Sí" : "No"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="enp-center-btn">
+        <a
+          href={waLink("Hola, deseo contratar el servicio profesional de enchapado de mayólica en Arequipa.")}
+          class="btn btn--green"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Contratar Servicio Profesional
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-testimonials">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Clientes Satisfechos</h2>
+        <p>Testimonios de proyectos de enchapado realizados</p>
+      </div>
+
+      <div class="enp-testimonial-grid">
+        {testimonials.map((item) => (
+          <article class="enp-testimonial-card">
+            <div class="enp-testimonial-card__top">
+              <span class="enp-testimonial-card__quote">
+                <i class="fa-solid fa-quote-left"></i>
+              </span>
+
+              <div class="enp-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+            <p class="enp-testimonial-card__text">“{item.text}”</p>
+
+            <div class="enp-testimonial-card__meta">
+              <strong>{item.name}</strong>
+              <span>{item.place}</span>
+              <small>{item.time}</small>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="enp-metrics">
+        {stats.map((item) => (
+          <article class={`enp-metric enp-metric--${item.tone}`}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-coverage">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <h2>Servicio en Toda Arequipa</h2>
+        <p>Enchapado profesional en todos los distritos</p>
+      </div>
+
+      <div class="enp-district-grid">
+        {districts.map((district) => (
+          <span class="enp-district-pill">{district}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section enp-faq">
+    <div class="container enp-faq__container">
+      <div class="section-head section-head--center">
+        <h2>Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="enp-faq__list">
+        {faqs.map((item) => (
+          <details class="enp-faq__item">
+            <summary>{item.question}</summary>
+            <div class="enp-faq__answer">
+              {item.answer.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="enp-emergency">
+    <div class="container">
+      <div class="enp-emergency__box">
+        <h2>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          Servicio de Emergencia 24/7
+        </h2>
+        <p>Atendemos emergencias en toda Arequipa y todos sus distritos</p>
+
+        <div class="enp-emergency__phones">
+          <a href={`tel:${PHONE_MAIN}`} class="enp-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            970 706 965
+          </a>
+          <a href={`tel:${PHONE_2}`} class="enp-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            988 970 791
+          </a>
+          <a href={`tel:${PHONE_3}`} class="enp-phone-pill">
+            <i class="fa-solid fa-phone"></i>
+            925 384 411
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</ManantialLayout>
