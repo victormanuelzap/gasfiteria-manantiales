@@ -1,0 +1,11 @@
+---
+import SeoServicePage from "../components/SeoServicePage.astro";
+import { commonBenefits, commonProcess } from "../data/seoServices";
+const faqs = [
+  { question: "¿Qué señales indican una fuga de desagüe?", answer: "Los malos olores, humedad constante, manchas oscuras y filtraciones cerca de baños o cocinas pueden indicar una falla en el desagüe." },
+  { question: "¿Una fuga de desagüe es una emergencia?", answer: "Puede serlo si hay aguas residuales, contaminación, filtración hacia otra vivienda o daño rápido en pisos y paredes." },
+  { question: "¿Reparan conexiones y tuberías de PVC?", answer: "Sí, evaluamos uniones, codos, conexiones y tramos dañados para definir el cambio o reparación necesaria." },
+  { question: "¿Atienden viviendas y negocios?", answer: "Sí, trabajamos en casas, departamentos, restaurantes, tiendas y otros establecimientos." },
+];
+---
+<SeoServicePage title="Fugas de Desagüe en Arequipa | Reparación Profesional" description="Reparación de fugas de desagüe en Arequipa para casas y negocios. Solucionamos filtraciones, malos olores y tuberías dañadas. Llame al 925 384 411." canonical="https://manantialjn.com/fugas-de-desague/" heading="Fugas de Desagüe en Arequipa" eyebrow="Solución sanitaria" intro="Revisamos y reparamos fugas en tuberías y conexiones de desagüe para detener humedad, malos olores y posibles daños sanitarios." situationTitle="Evita que el desagüe afecte tu propiedad" situationText="Una conexión abierta o una tubería de desagüe dañada puede filtrar agua contaminada dentro de paredes, pisos o techos. Ubicamos la zona afectada y proponemos una solución segura." signs={["Mal olor persistente en baños o cocinas","Humedad cerca de tuberías sanitarias","Manchas oscuras en paredes o techos","Filtración hacia pisos inferiores","Sonidos o goteos en el sistema de desagüe"]} process={commonProcess} benefits={commonBenefits} faqs={faqs} whatsappMessage="Hola, necesito reparar una fuga de desagüe en Arequipa." />

@@ -1,0 +1,100 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+}
+
+const { title, description, canonical, ogImage = "/assets/servicios/fugas.webp" } = Astro.props;
+const phoneDisplay = "925 384 411";
+const phoneRaw = "51925384411";
+const whatsappHref = `https://wa.me/${phoneRaw}`;
+const finalOgImage = new URL(ogImage, "https://manantialjn.com").toString();
+---
+<!doctype html>
+<html lang="es-PE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0a1530" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content="Instalación y Servicios Manantial" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={finalOgImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/assets/logo-personita.png" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Instalación y Servicios Manantial",
+      description,
+      areaServed: "Arequipa, Perú",
+      telephone: "+51 925 384 411",
+      url: canonical,
+      openingHours: "Mo-Su 00:00-23:59",
+    })} />
+  </head>
+  <body>
+    <div class="manantial-theme">
+      <header class="site-header">
+        <div class="container header-inner">
+          <div class="header-top-mobile">
+            <a href="/" class="brand" aria-label="Ir al inicio">
+              <img src="/assets/logo-personita.png" alt="Logo de Instalación y Servicios Manantial" width="52" height="52" />
+              <span class="brand-name">Manantial</span>
+            </a>
+            <div class="header-cta">
+              <a class="call-btn" href={`tel:+${phoneRaw}`} aria-label={`Llamar al ${phoneDisplay}`}>
+                <i class="fa-solid fa-phone-volume" aria-hidden="true"></i><span>{phoneDisplay}</span>
+              </a>
+            </div>
+          </div>
+          <nav class="main-nav" aria-label="Navegación principal">
+            <ul><li><a href="/#servicios">Servicios</a></li><li><a href="/#nosotros">Nosotros</a></li><li><a href="#contacto">Contacto</a></li></ul>
+          </nav>
+        </div>
+      </header>
+      <main><slot /></main>
+      <footer class="site-footer" id="contacto">
+        <div class="container footer-grid seo-footer-grid">
+          <div class="footer-brand-col">
+            <h2>Instalación y Servicios Manantial</h2>
+            <p>Soluciones profesionales de gasfitería para hogares y negocios en Arequipa.</p>
+          </div>
+          <div class="footer-services-col">
+            <h3>Subpáginas</h3>
+            <ul>
+              <li><a href="/fugas-de-agua-en-casa/">Fugas de agua en casa</a></li>
+              <li><a href="/fugas-de-desague/">Fugas de desagüe</a></li>
+              <li><a href="/tuberia-rota/">Tubería rota</a></li>
+              <li><a href="/tuberia-rota-en-arequipa/">Tubería rota en Arequipa</a></li>
+              <li><a href="/reparacion-de-filtracion/">Reparación de filtración</a></li>
+              <li><a href="/gasfitero-urgente/">Gasfitero urgente</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact-col">
+            <h3>Contacto</h3>
+            <p><a href={`tel:+${phoneRaw}`}>{phoneDisplay}</a></p>
+            <p><a href={whatsappHref} target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a></p>
+            <p>Atención 24/7 · Arequipa</p>
+          </div>
+        </div>
+      </footer>
+      <a class="seo-floating-wa" href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </body>
+</html>
+
+<style>
+  .seo-footer-grid{grid-template-columns:1.15fr 1fr .85fr}.footer-contact-col a{color:#fff;font-weight:800}.seo-floating-wa{position:fixed;right:22px;bottom:22px;z-index:50;display:grid;width:58px;height:58px;place-items:center;border-radius:50%;background:#25d366;color:#fff;font-size:1.8rem;box-shadow:0 12px 30px rgba(0,0,0,.24)}@media(max-width:800px){.seo-footer-grid{grid-template-columns:1fr}}
+</style>

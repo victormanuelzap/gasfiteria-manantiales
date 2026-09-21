@@ -1,0 +1,141 @@
+---
+import SeoManantialLayout from "../layouts/SeoManantialLayout.astro";
+
+interface FAQ { question: string; answer: string }
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  heading: string;
+  eyebrow: string;
+  intro: string;
+  situationTitle: string;
+  situationText: string;
+  signs: string[];
+  process: { title: string; text: string }[];
+  benefits: string[];
+  faqs: FAQ[];
+  whatsappMessage: string;
+}
+
+const {
+  title, description, canonical, heading, eyebrow, intro, situationTitle,
+  situationText, signs, process, benefits, faqs, whatsappMessage,
+} = Astro.props;
+
+const phoneDisplay = "925 384 411";
+const phoneRaw = "51925384411";
+const whatsappHref = `https://wa.me/${phoneRaw}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: heading,
+  description,
+  areaServed: { "@type": "City", name: "Arequipa" },
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Instalación y Servicios Manantial",
+    telephone: "+51 925 384 411",
+    url: "https://manantialjn.com/",
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+---
+
+<SeoManantialLayout title={title} description={description} canonical={canonical} ogImage="/assets/servicios/fugas.webp">
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="seo-hero">
+    <img src="/assets/servicios/fugas.webp" alt={heading} width="1600" height="900" loading="eager" fetchpriority="high" />
+    <div class="seo-hero__shade"></div>
+    <div class="container seo-hero__content">
+      <a class="seo-back" href="/">← Volver al inicio</a>
+      <span class="seo-eyebrow">{eyebrow}</span>
+      <h1>{heading}</h1>
+      <p>{intro}</p>
+      <div class="seo-actions">
+        <a class="btn btn--green" href={whatsappHref} target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
+        </a>
+        <a class="btn btn--yellow" href={`tel:+${phoneRaw}`}>
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar al {phoneDisplay}
+        </a>
+      </div>
+      <ul class="seo-trust" aria-label="Ventajas del servicio">
+        <li>Atención 24/7</li><li>Todo Arequipa</li><li>Trabajo garantizado</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seo-alert">
+    <div class="container"><strong>¿Necesitas atención rápida?</strong> Llámanos al <a href={`tel:+${phoneRaw}`}>{phoneDisplay}</a>.</div>
+  </section>
+
+  <section class="section seo-intro">
+    <div class="container seo-two-col">
+      <div>
+        <span class="seo-kicker">Servicio especializado</span>
+        <h2>{situationTitle}</h2>
+        <p>{situationText}</p>
+        <p>Atendemos casas, departamentos, comercios y empresas en los diferentes distritos de Arequipa.</p>
+      </div>
+      <aside class="seo-card">
+        <h2>Señales que debes revisar</h2>
+        <ul>{signs.map((sign) => <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i>{sign}</li>)}</ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section seo-process">
+    <div class="container">
+      <div class="section-head"><span class="seo-kicker">Cómo trabajamos</span><h2>Solución profesional paso a paso</h2></div>
+      <div class="seo-process__grid">
+        {process.map((step, index) => (
+          <article class="seo-step"><span>{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section seo-benefits">
+    <div class="container seo-two-col">
+      <div>
+        <span class="seo-kicker">Manantial</span>
+        <h2>¿Por qué confiar en nosotros?</h2>
+        <ul>{benefits.map((benefit) => <li><i class="fa-solid fa-check" aria-hidden="true"></i>{benefit}</li>)}</ul>
+      </div>
+      <div class="seo-cta-card">
+        <h2>Solicita atención en Arequipa</h2>
+        <p>Cuéntanos el problema y envíanos fotos o videos por WhatsApp para orientarte.</p>
+        <a class="btn btn--green" href={whatsappHref} target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp</a>
+        <a class="seo-phone" href={`tel:+${phoneRaw}`}>{phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section seo-faq">
+    <div class="container seo-faq__inner">
+      <div class="section-head"><span class="seo-kicker">Preguntas frecuentes</span><h2>Resolvemos tus dudas</h2></div>
+      {faqs.map((faq) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
+    </div>
+  </section>
+
+  <section class="seo-final">
+    <div class="container"><h2>¿Necesitas este servicio ahora?</h2><p>Atención en toda Arequipa, todos los días.</p><div class="seo-actions seo-actions--center"><a class="btn btn--green" href={whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp</a><a class="btn btn--light" href={`tel:+${phoneRaw}`}>Llamar: {phoneDisplay}</a></div></div>
+  </section>
+</SeoManantialLayout>
+
+<style>
+  .seo-hero{position:relative;min-height:640px;display:flex;align-items:center;overflow:hidden;background:#0b214d;color:#fff}.seo-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.seo-hero__shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,20,54,.96),rgba(15,56,130,.78) 62%,rgba(20,80,170,.5))}.seo-hero__content{position:relative;z-index:1;padding-top:80px;padding-bottom:80px}.seo-back{display:inline-block;margin-bottom:32px;color:#fff;font-weight:700}.seo-eyebrow,.seo-kicker{display:block;margin-bottom:12px;color:#f4bf00;font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}.seo-hero h1{max-width:900px;margin:0 0 20px;font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.045em}.seo-hero p{max-width:760px;margin:0;font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.7;color:rgba(255,255,255,.92)}.seo-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.seo-trust{display:flex;flex-wrap:wrap;gap:20px;margin:30px 0 0;padding:0;list-style:none;font-weight:700}.seo-trust li:before{content:'✓';color:#f4bf00;margin-right:8px}.seo-alert{padding:18px 0;background:#f4bf00;color:#111827;text-align:center}.seo-alert a{color:#0b214d;font-weight:900}.seo-two-col{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:start}.seo-intro h2,.seo-benefits h2,.section-head h2,.seo-cta-card h2{margin:0 0 18px;color:#0b214d;font-size:clamp(1.9rem,4vw,3rem);line-height:1.08}.seo-intro p,.seo-step p,.seo-faq p,.seo-cta-card p{color:#475569;line-height:1.8}.seo-card,.seo-cta-card{padding:34px;border-radius:20px;background:#fff;box-shadow:0 18px 45px rgba(15,23,42,.1)}.seo-card h2{margin-top:0;color:#0b214d}.seo-card ul,.seo-benefits ul{display:grid;gap:15px;margin:0;padding:0;list-style:none}.seo-card li,.seo-benefits li{display:flex;gap:12px;align-items:flex-start;color:#334155}.seo-card i,.seo-benefits i{margin-top:4px;color:#16a34a}.seo-process{background:#f1f5f9}.section-head{text-align:center;max-width:760px;margin:0 auto 38px}.seo-process__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.seo-step{padding:28px 24px;border-radius:18px;background:#fff;box-shadow:0 10px 30px rgba(15,23,42,.06)}.seo-step>span{display:grid;width:44px;height:44px;place-items:center;border-radius:50%;background:#2563eb;color:#fff;font-weight:900}.seo-step h3{color:#0b214d}.seo-benefits{background:#fff}.seo-benefits .seo-two-col{align-items:center}.seo-cta-card{background:linear-gradient(145deg,#0b214d,#1e56b3);color:#fff;text-align:center}.seo-cta-card h2,.seo-cta-card p{color:#fff}.seo-phone{display:block;margin-top:20px;color:#f4bf00;font-size:1.5rem;font-weight:900}.seo-faq{background:#f8fafc}.seo-faq__inner{max-width:900px}.seo-faq details{margin-bottom:12px;border:1px solid #dbe4f0;border-radius:14px;background:#fff;padding:0 22px}.seo-faq summary{padding:20px 0;cursor:pointer;color:#0b214d;font-weight:800}.seo-faq details p{padding:0 0 20px;margin:0}.seo-final{padding:72px 0;background:#0b214d;color:#fff;text-align:center}.seo-final h2{margin:0;font-size:clamp(2rem,4vw,3.2rem)}.seo-final p{font-size:1.15rem}.seo-actions--center{justify-content:center}@media(max-width:850px){.seo-two-col,.seo-process__grid{grid-template-columns:1fr}.seo-process__grid{gap:14px}.seo-hero{min-height:600px}.seo-hero__content{padding-top:55px;padding-bottom:55px}}@media(max-width:520px){.seo-actions .btn{width:100%;justify-content:center}.seo-card,.seo-cta-card{padding:26px 20px}.seo-trust{display:grid;gap:10px}}
+</style>

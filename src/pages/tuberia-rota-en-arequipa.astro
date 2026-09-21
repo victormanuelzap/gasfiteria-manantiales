@@ -1,0 +1,11 @@
+---
+import SeoServicePage from "../components/SeoServicePage.astro";
+import { commonBenefits, commonProcess } from "../data/seoServices";
+const faqs = [
+  { question: "¿Atienden una tubería rota de emergencia en Arequipa?", answer: "Sí, comunícate al 925 384 411 para confirmar disponibilidad y tiempo estimado según tu distrito." },
+  { question: "¿Qué información debo enviar?", answer: "Indica tu distrito, comparte fotos o video y explica si ya cerraste la llave general de agua." },
+  { question: "¿Trabajan tuberías de agua fría y caliente?", answer: "Evaluamos distintos sistemas y materiales para definir la reparación apropiada en cada instalación." },
+  { question: "¿La reparación tiene garantía?", answer: "Sí, informamos las condiciones de garantía según el trabajo y los materiales utilizados." },
+];
+---
+<SeoServicePage title="Tubería Rota en Arequipa | Atención de Emergencia" description="Atención para tubería rota en Arequipa. Servicio rápido en casas, departamentos y negocios. Llama o escribe al 925 384 411." canonical="https://manantialjn.com/tuberia-rota-en-arequipa/" heading="Tubería Rota en Arequipa" eyebrow="Atención de emergencia" intro="¿El agua está saliendo sin control? Solicita atención para una tubería rota en Arequipa y limita los daños en tu vivienda o negocio." situationTitle="Respuesta local para roturas de tubería" situationText="Coordinamos la atención según tu distrito y la urgencia del caso. Antes de acudir, podemos orientarte por teléfono para cerrar el agua y proteger la zona afectada." signs={["Rotura con agua saliendo a presión","Inundación de un ambiente","Tubería exterior agrietada","Filtración que afecta a otra vivienda","Falla que impide usar baños o cocina"]} process={commonProcess} benefits={commonBenefits} faqs={faqs} whatsappMessage="Hola, tengo una tubería rota en Arequipa. Necesito atención urgente." />

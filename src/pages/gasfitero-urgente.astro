@@ -1,0 +1,11 @@
+---
+import SeoServicePage from "../components/SeoServicePage.astro";
+import { commonBenefits, commonProcess } from "../data/seoServices";
+const faqs = [
+  { question: "¿Cómo solicito un gasfitero urgente?", answer: "Llama o escribe al 925 384 411, indica tu distrito y explica el problema. Si puedes, adjunta fotos o un video." },
+  { question: "¿Atienden de noche y fines de semana?", answer: "Ofrecemos atención 24/7 sujeta a disponibilidad. Confirma el tiempo estimado al comunicarte." },
+  { question: "¿Qué hago mientras llega el técnico?", answer: "Cierra la llave general si existe pérdida de agua y evita tocar enchufes o equipos eléctricos mojados." },
+  { question: "¿Qué emergencias atienden?", answer: "Roturas de tubería, fugas, desbordes, atoros críticos y fallas sanitarias que requieren intervención rápida." },
+];
+---
+<SeoServicePage title="Gasfitero Urgente en Arequipa 24/7 | Manantial" description="Gasfitero urgente en Arequipa para fugas, tuberías rotas, atoros y emergencias sanitarias. Atención 24/7 al 925 384 411." canonical="https://manantialjn.com/gasfitero-urgente/" heading="Gasfitero Urgente en Arequipa" eyebrow="Emergencias 24/7" intro="Atención rápida para fugas, tuberías rotas, desbordes y problemas sanitarios que no pueden esperar." situationTitle="Ayuda cuando más la necesitas" situationText="Una emergencia de gasfitería puede interrumpir el agua, inundar un ambiente o impedir el uso de baños y cocinas. Contáctanos para coordinar la atención de acuerdo con tu ubicación." signs={["Agua saliendo sin control","Desagüe desbordado","Tubería rota o conexión desprendida","Fuga que afecta instalaciones eléctricas","Baño o cocina fuera de servicio"]} process={commonProcess} benefits={commonBenefits} faqs={faqs} whatsappMessage="Hola, necesito un gasfitero urgente en Arequipa." />
